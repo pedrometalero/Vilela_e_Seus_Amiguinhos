@@ -3,113 +3,183 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Evolução dos Modelos Atômicos</title>
+    <title>Evolução dos Modelos Atômicos | Ciência Interativa</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://googleapis.com" rel="stylesheet">
 </head>
 <body>
-    <!-- Barra de Acessibilidade -->
-    <nav class="barra-acessibilidade" aria-label="Menu de Acessibilidade">
-        <span>Acessibilidade:</span>
-        <button id="btn-contraste" aria-pressed="false">Alto Contraste</button>
-        <button id="btn-aumentar-fonte" aria-label="Aumentar tamanho da fonte">A+</button>
-        <button id="btn-diminuir-fonte" aria-label="Diminuir tamanho da fonte">A-</button>
-        <button id="btn-resetar" aria-label="Restaurar configurações padrão">Resetar</button>
-    </nav>
 
-    <header>
+    <!-- Barra de Acessibilidade Flutuante -->
+    <aside class="acessibilidade-bar" aria-label="Menu de Acessibilidade">
+        <button id="btn-acessibilidade" aria-expanded="false" aria-controls="painel-acessibilidade" title="Opções de Acessibilidade">
+            ♿ Acessibilidade
+        </button>
+        <div id="painel-acessibilidade" class="painel-oculto">
+            <button onclick="alterarFonte(1)" aria-label="Aumentar tamanho do texto">A+ Aumentar Fonte</button>
+            <button onclick="alterarFonte(-1)" aria-label="Diminuir tamanho do texto">A- Diminuir Fonte</button>
+            <button onclick="alternarContraste()" aria-label="Ativar ou desativar alto contraste">🌓 Alto Contraste</button>
+            <button onclick="resetarAcessibilidade()" aria-label="Restaurar padrões">↺ Restaurar</button>
+        </div>
+    </aside>
+
+    <!-- Cabeçalho Hero -->
+    <header class="hero">
         <div class="container">
+            <span class="badge">Química & Física</span>
             <h1>A Evolução dos Modelos Atômicos</h1>
-            <p>Uma jornada científica pela estrutura fundamental da matéria.</p>
+            <p>Explore a jornada científica que revelou a estrutura fundamental da matéria, desde a Grécia Antiga até a mecânica quântica.</p>
+            <a href="#modelos" class="btn-primary">Explorar Modelos</a>
         </div>
     </header>
 
-    <main class="container">
-        <section class="introducao">
-            <h2>O que é um Modelo Atômico?</h2>
-            <p>Modelos atômicos são representações teóricas criadas por cientistas ao longo da história para explicar como os átomos são estruturados e como a matéria se comporta. Cada descoberta aprimorou a teoria anterior.</p>
-        </section>
+    <!-- Conteúdo Principal -->
+    <main id="modelos" class="container">
+        
+        <!-- Modelo 1: Dalton -->
+        <article class="card">
+            <div class="card-img">
+                <svg viewBox="0 0 200 200" aria-label="Ilustração do modelo atômico de Dalton: uma esfera maciça e indivisível">
+                    <defs>
+                        <radialGradient id="daltonGrad" cx="35%" cy="35%" r="65%">
+                            <stop offset="0%" stop-color="#38bdf8"/>
+                            <stop offset="100%" stop-color="#0284c7"/>
+                        </radialGradient>
+                    </defs>
+                    <circle cx="100" cy="100" r="65" fill="url(#daltonGrad)"/>
+                </svg>
+            </div>
+            <div class="card-content">
+                <span class="ano">1803 • John Dalton</span>
+                <h2>Modelo da Bola de Bilhar</h2>
+                <p>Dalton retomou a ideia dos filósofos gregos e propôs que o átomo era uma esfera maciça, homogênea, indivisível e indestrutível.</p>
+                <ul>
+                    <li>Átomos de um mesmo elemento são idênticos.</li>
+                    <li>Reações químicas são rearranjos de átomos.</li>
+                </ul>
+            </div>
+        </article>
 
-        <section class="timeline" aria-label="Linha do tempo dos modelos atômicos">
-            
-            <article class="card">
-                <div class="ano">1803</div>
-                <h3>Modelo de Dalton ("Bola de Bilhar")</h3>
-                <p><strong>John Dalton</strong> propôs que o átomo seria uma esfera maciça, homogênea, indivisível e indestrutível. Átomos de um mesmo elemento possuem a mesma massa e propriedades.</p>
-            </article>
+        <!-- Modelo 2: Thomson -->
+        <article class="card">
+            <div class="card-img">
+                <svg viewBox="0 0 200 200" aria-label="Ilustração do modelo atômico de Thomson: esfera positiva com elétrons incrustados">
+                    <circle cx="100" cy="100" r="65" fill="#f43f5e" opacity="0.85"/>
+                    <!-- Elétrons -->
+                    <circle cx="75" cy="75" r="8" fill="#fef08a"/>
+                    <circle cx="125" cy="70" r="8" fill="#fef08a"/>
+                    <circle cx="100" cy="105" r="8" fill="#fef08a"/>
+                    <circle cx="70" cy="125" r="8" fill="#fef08a"/>
+                    <circle cx="130" cy="120" r="8" fill="#fef08a"/>
+                    <circle cx="100" cy="55" r="8" fill="#fef08a"/>
+                    <circle cx="100" cy="145" r="8" fill="#fef08a"/>
+                </svg>
+            </div>
+            <div class="card-content">
+                <span class="ano">1897 • J.J. Thomson</span>
+                <h2>Modelo do Pudim de Passas</h2>
+                <p>Com a descoberta do elétron através de tubos de raios catódicos, Thomson provou que o átomo era divisível e possuía natureza elétrica.</p>
+                <ul>
+                    <li>Esfera de carga elétrica positiva.</li>
+                    <li>Elétrons (carga negativa) incrustados na superfície.</li>
+                </ul>
+            </div>
+        </article>
 
-            <article class="card">
-                <div class="ano">1897</div>
-                <h3>Modelo de Thomson ("Pudim de Passas")</h3>
-                <p><strong>J.J. Thomson</strong> descobriu o elétron e derrubou a ideia de indivisibilidade. Propôs uma esfera de carga elétrica positiva com elétrons negativos incrustados nela.</p>
-            </article>
+        <!-- Modelo 3: Rutherford -->
+        <article class="card">
+            <div class="card-img">
+                <svg viewBox="0 0 200 200" aria-label="Ilustração do modelo atômico de Rutherford: núcleo central denso com elétrons orbitando ao redor">
+                    <!-- Órbitas -->
+                    <ellipse cx="100" cy="100" rx="80" ry="30" fill="none" stroke="#94a3b8" stroke-width="2" transform="rotate(30 100 100)"/>
+                    <ellipse cx="100" cy="100" rx="80" ry="30" fill="none" stroke="#94a3b8" stroke-width="2" transform="rotate(-30 100 100)"/>
+                    <ellipse cx="100" cy="100" rx="80" ry="30" fill="none" stroke="#94a3b8" stroke-width="2" transform="rotate(90 100 100)"/>
+                    <!-- Núcleo -->
+                    <circle cx="100" cy="100" r="14" fill="#f97316"/>
+                    <!-- Elétrons -->
+                    <circle cx="168" cy="140" r="6" fill="#38bdf8"/>
+                    <circle cx="32" cy="60" r="6" fill="#38bdf8"/>
+                    <circle cx="100" cy="20" r="6" fill="#38bdf8"/>
+                </svg>
+            </div>
+            <div class="card-content">
+                <span class="ano">1911 • Ernest Rutherford</span>
+                <h2>Modelo Planetário</h2>
+                <p>Através do famoso experimento da folha de ouro, Rutherford descobriu que o átomo possui um núcleo muito pequeno, denso e positivo.</p>
+                <ul>
+                    <li>Grande espaço vazio (eletrosfera).</li>
+                    <li>Elétrons giram ao redor do núcleo como planetas ao redor do Sol.</li>
+                </ul>
+            </div>
+        </article>
 
-            <article class="card">
-                <div class="ano">1911</div>
-                <h3>Modelo de Rutherford ("Sistema Solar")</h3>
-                <p><strong>Ernest Rutherford</strong>, através do experimento da lâmina de ouro, descobriu que o átomo possui um núcleo pequeno, denso e positivo, rodeado por uma grande região vazia onde giram os elétrons (eletrosfera).</p>
-            </article>
+        <!-- Modelo 4: Bohr -->
+        <article class="card">
+            <div class="card-img">
+                <svg viewBox="0 0 200 200" aria-label="Ilustração do modelo atômico de Bohr: núcleo central com camadas circulares concêntricas">
+                    <!-- Camadas de Energia -->
+                    <circle cx="100" cy="100" r="35" fill="none" stroke="#38bdf8" stroke-width="2" stroke-dasharray="4"/>
+                    <circle cx="100" cy="100" r="60" fill="none" stroke="#38bdf8" stroke-width="2"/>
+                    <circle cx="100" cy="100" r="85" fill="none" stroke="#38bdf8" stroke-width="2"/>
+                    <!-- Núcleo -->
+                    <circle cx="100" cy="100" r="12" fill="#ef4444"/>
+                    <!-- Elétrons nas camadas -->
+                    <circle cx="100" cy="65" r="5" fill="#fde047"/>
+                    <circle cx="160" cy="100" r="5" fill="#fde047"/>
+                    <circle cx="40" cy="100" r="5" fill="#fde047"/>
+                    <circle cx="100" cy="185" r="5" fill="#fde047"/>
+                </svg>
+            </div>
+            <div class="card-content">
+                <span class="ano">1913 • Niels Bohr</span>
+                <h2>Modelo de Camadas Quantizadas</h2>
+                <p>Bohr aperfeiçoou o modelo de Rutherford aplicando a teoria quântica, explicando por que os elétrons não caem no núcleo.</p>
+                <ul>
+                    <li>Elétrons ocupam níveis específicos de energia (camadas K, L, M, N, O, P, Q).</li>
+                    <li>Ao saltar de camada, o elétron absorve ou emite luz (fótons).</li>
+                </ul>
+            </div>
+        </article>
 
-            <article class="card">
-                <div class="ano">1913</div>
-                <h3>Modelo de Bohr</h3>
-                <p><strong>Niels Bohr</strong> aperfeiçoou o modelo de Rutherford ao afirmar que os elétrons giram ao redor do núcleo em órbitas circulares específicas e com níveis de energia definidos (camadas eletrônicas).</p>
-            </article>
-
-            <article class="card">
-                <div class="ano">1926</div>
-                <h3>Modelo Quântico Atual</h3>
-                <p>Baseado nos estudos de <strong>Schrödinger, Heisenberg e outros</strong>, substituiu as órbitas fixas pelo conceito de <em>orbitais</em> — regiões onde há maior probabilidade de encontrar um elétron.</p>
-            </article>
-
-        </section>
     </main>
 
     <footer>
         <div class="container">
-            <p>Projeto Educacional de Ciências &bull; Hospedado no GitHub Pages</p>
+            <p>Desenvolvido para fins educacionais • Pronto para GitHub Pages</p>
         </div>
     </footer>
 
-    <!-- Script Funcional de Acessibilidade -->
+    <!-- Script de Acessibilidade -->
     <script>
-        const btnContraste = document.getElementById('btn-contraste');
-        const btnAumentar = document.getElementById('btn-aumentar-fonte');
-        const btnDiminuir = document.getElementById('btn-diminuir-fonte');
-        const btnResetar = document.getElementById('btn-resetar');
-        const htmlElement = document.documentElement;
+        const btnAcessibilidade = document.getElementById('btn-acessibilidade');
+        const painel = document.getElementById('painel-acessibilidade');
+        let tamanhoFonteAtual = 100;
 
-        let tamanhoFonteAtual = 100; // Porcentagem padrão
+        // Abre e fecha o menu de acessibilidade
+        btnAcessibilidade.addEventListener('click', () => {
+            const aberto = painel.classList.toggle('painel-visivel');
+            btnAcessibilidade.setAttribute('aria-expanded', aberto);
+        });
 
-        // Alternar Alto Contraste
-        btnContraste.addEventListener('click', () => {
+        // Aumenta ou diminui a fonte da página
+        function alterarFonte(direcao) {
+            tamanhoFonteAtual += direcao * 10;
+            if (tamanhoFonteAtual < 80) tamanhoFonteAtual = 80;
+            if (tamanhoFonteAtual > 150) tamanhoFonteAtual = 150;
+            document.documentElement.style.fontSize = tamanhoFonteAtual + '%';
+        }
+
+        // Ativa/Desativa o modo Alto Contraste
+        function alternarContraste() {
             document.body.classList.toggle('alto-contraste');
-            const ativado = document.body.classList.contains('alto-contraste');
-            btnContraste.setAttribute('aria-pressed', ativado);
-        });
+        }
 
-        // Aumentar Fonte
-        btnAumentar.addEventListener('click', () => {
-            if (tamanhoFonteAtual < 140) {
-                tamanhoFonteAtual += 10;
-                htmlElement.style.fontSize = tamanhoFonteAtual + '%';
-            }
-        });
-
-        // Diminuir Fonte
-        btnDiminuir.addEventListener('click', () => {
-            if (tamanhoFonteAtual > 80) {
-                tamanhoFonteAtual -= 10;
-                htmlElement.style.fontSize = tamanhoFonteAtual + '%';
-            }
-        });
-
-        // Resetar Configurações
-        btnResetar.addEventListener('click', () => {
+        // Restaura configurações originais
+        function resetarAcessibilidade() {
             tamanhoFonteAtual = 100;
-            htmlElement.style.fontSize = '100%';
+            document.documentElement.style.fontSize = '100%';
             document.body.classList.remove('alto-contraste');
-            btnContraste.setAttribute('aria-pressed', 'false');
-        });
+        }
     </script>
+
 </body>
 </html>
