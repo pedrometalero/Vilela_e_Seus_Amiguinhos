@@ -3,156 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Site educativo e acessível sobre a evolução dos modelos atômicos na ciência: Dalton, Thomson, Rutherford e Bohr.">
-    <title>Modelos Atômicos | Ciência Acessível</title>
+    <title>Evolução dos Modelos Atômicos</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Link de salto para navegação por teclado e leitores de tela -->
-    <a href="#conteudo-principal" class="skip-link">Pular para o conteúdo principal</a>
+    <!-- Barra de Acessibilidade -->
+    <nav class="barra-acessibilidade" aria-label="Menu de Acessibilidade">
+        <span>Acessibilidade:</span>
+        <button id="btn-contraste" aria-pressed="false">Alto Contraste</button>
+        <button id="btn-aumentar-fonte" aria-label="Aumentar tamanho da fonte">A+</button>
+        <button id="btn-diminuir-fonte" aria-label="Diminuir tamanho da fonte">A-</button>
+        <button id="btn-resetar" aria-label="Restaurar configurações padrão">Resetar</button>
+    </nav>
 
-    <header role="banner">
+    <header>
         <div class="container">
-            <h1>Evolução dos Modelos Atômicos</h1>
-            <p>Uma jornada acessível pela história da estrutura da matéria.</p>
+            <h1>A Evolução dos Modelos Atômicos</h1>
+            <p>Uma jornada científica pela estrutura fundamental da matéria.</p>
         </div>
     </header>
 
-    <nav aria-label="Menu de navegação principal">
+    <main class="container">
+        <section class="introducao">
+            <h2>O que é um Modelo Atômico?</h2>
+            <p>Modelos atômicos são representações teóricas criadas por cientistas ao longo da história para explicar como os átomos são estruturados e como a matéria se comporta. Cada descoberta aprimorou a teoria anterior.</p>
+        </section>
+
+        <section class="timeline" aria-label="Linha do tempo dos modelos atômicos">
+            
+            <article class="card">
+                <div class="ano">1803</div>
+                <h3>Modelo de Dalton ("Bola de Bilhar")</h3>
+                <p><strong>John Dalton</strong> propôs que o átomo seria uma esfera maciça, homogênea, indivisível e indestrutível. Átomos de um mesmo elemento possuem a mesma massa e propriedades.</p>
+            </article>
+
+            <article class="card">
+                <div class="ano">1897</div>
+                <h3>Modelo de Thomson ("Pudim de Passas")</h3>
+                <p><strong>J.J. Thomson</strong> descobriu o elétron e derrubou a ideia de indivisibilidade. Propôs uma esfera de carga elétrica positiva com elétrons negativos incrustados nela.</p>
+            </article>
+
+            <article class="card">
+                <div class="ano">1911</div>
+                <h3>Modelo de Rutherford ("Sistema Solar")</h3>
+                <p><strong>Ernest Rutherford</strong>, através do experimento da lâmina de ouro, descobriu que o átomo possui um núcleo pequeno, denso e positivo, rodeado por uma grande região vazia onde giram os elétrons (eletrosfera).</p>
+            </article>
+
+            <article class="card">
+                <div class="ano">1913</div>
+                <h3>Modelo de Bohr</h3>
+                <p><strong>Niels Bohr</strong> aperfeiçoou o modelo de Rutherford ao afirmar que os elétrons giram ao redor do núcleo em órbitas circulares específicas e com níveis de energia definidos (camadas eletrônicas).</p>
+            </article>
+
+            <article class="card">
+                <div class="ano">1926</div>
+                <h3>Modelo Quântico Atual</h3>
+                <p>Baseado nos estudos de <strong>Schrödinger, Heisenberg e outros</strong>, substituiu as órbitas fixas pelo conceito de <em>orbitais</em> — regiões onde há maior probabilidade de encontrar um elétron.</p>
+            </article>
+
+        </section>
+    </main>
+
+    <footer>
         <div class="container">
-            <ul>
-                <li><a href="#dalton">Dalton (1803)</a></li>
-                <li><a href="#thomson">Thomson (1897)</a></li>
-                <li><a href="#rutherford">Rutherford (1911)</a></li>
-                <li><a href="#bohr">Bohr (1913)</a></li>
-                <li><a href="#comparacao">Tabela Comparativa</a></li>
-            </ul>
+            <p>Projeto Educacional de Ciências &bull; Hospedado no GitHub Pages</p>
         </div>
-    </nav>
+    </footer>
 
-    <main id="conteudo-principal" tabindex="-1">
-        <div class="container">
-            <section aria-labelledby="intro-titulo">
-                <h2 id="intro-titulo">O que é um Modelo Atômico?</h2>
-                <p>Na ciência, um modelo atômico é uma representação teórica usada para explicar a estrutura e o comportamento dos átomos, que são as unidades básicas da matéria. Ao longo dos séculos, novos experimentos permitiram aprimorar essas teorias.</p>
-            </section>
+    <!-- Script Funcional de Acessibilidade -->
+    <script>
+        const btnContraste = document.getElementById('btn-contraste');
+        const btnAumentar = document.getElementById('btn-aumentar-fonte');
+        const btnDiminuir = document.getElementById('btn-diminuir-fonte');
+        const btnResetar = document.getElementById('btn-resetar');
+        const htmlElement = document.documentElement;
 
-            <!-- Modelo de Dalton -->
-            <article id="dalton" class="card" aria-labelledby="titulo-dalton">
-                <div class="card-texto">
-                    <h2 id="titulo-dalton">1. Modelo de Dalton (1803)</h2>
-                    <p><strong>Apelido:</strong> Bola de Bilhar</p>
-                    <p>John Dalton propôs que toda a matéria é formada por partículas extremamente pequenas, maciças, esféricas e indivisíveis chamadas átomos.</p>
-                    <ul>
-                        <li>Átomos de um mesmo elemento são idênticos em massa e propriedades.</li>
-                        <li>Reações químicas são apenas rearranjos de átomos.</li>
-                    </ul>
-                </div>
-                <div class="card-visual">
-                    <svg width="160" height="160" viewBox="0 0 160 160" role="img" aria-labelledby="svg-dalton-titulo svg-dalton-desc">
-                        <title id="svg-dalton-titulo">Representação do Modelo de Dalton</title>
-                        <desc id="svg-dalton-desc">Uma esfera sólida e uniforme de cor azul escuro, representando uma bola de bilhar maciça e indivisível.</desc>
-                        <circle cx="80" cy="80" r="65" fill="#1d4ed8" stroke="#0f172a" stroke-width="4" />
-                    </svg>
-                </div>
-            </article>
+        let tamanhoFonteAtual = 100; // Porcentagem padrão
 
-            <!-- Modelo de Thomson -->
-            <article id="thomson" class="card" aria-labelledby="titulo-thomson">
-                <div class="card-texto">
-                    <h2 id="titulo-thomson">2. Modelo de Thomson (1897)</h2>
-                    <p><strong>Apelido:</strong> Pudim de Passas</p>
-                    <p>Após descobrir o elétron usando tubos de raios catódicos, J.J. Thomson demonstrou que o átomo era divisível.</p>
-                    <ul>
-                        <li>O átomo seria uma esfera de carga elétrica positiva.</li>
-                        <li>Elétrons (cargas negativas) estariam incrustados nessa esfera, neutralizando a carga total.</li>
-                    </ul>
-                </div>
-                <div class="card-visual">
-                    <svg width="160" height="160" viewBox="0 0 160 160" role="img" aria-labelledby="svg-thomson-titulo svg-thomson-desc">
-                        <title id="svg-thomson-titulo">Representação do Modelo de Thomson</title>
-                        <desc id="svg-thomson-desc">Uma esfera amarela representando a massa positiva com pequenos círculos azuis espalhados por dentro, representando os elétrons negativos.</desc>
-                        <circle cx="80" cy="80" r="65" fill="#fde047" stroke="#0f172a" stroke-width="4" />
-                        <circle cx="55" cy="55" r="9" fill="#1d4ed8" />
-                        <circle cx="105" cy="55" r="9" fill="#1d4ed8" />
-                        <circle cx="80" cy="80" r="9" fill="#1d4ed8" />
-                        <circle cx="50" cy="105" r="9" fill="#1d4ed8" />
-                        <circle cx="110" cy="100" r="9" fill="#1d4ed8" />
-                        <circle cx="80" cy="120" r="9" fill="#1d4ed8" />
-                    </svg>
-                </div>
-            </article>
+        // Alternar Alto Contraste
+        btnContraste.addEventListener('click', () => {
+            document.body.classList.toggle('alto-contraste');
+            const ativado = document.body.classList.contains('alto-contraste');
+            btnContraste.setAttribute('aria-pressed', ativado);
+        });
 
-            <!-- Modelo de Rutherford -->
-            <article id="rutherford" class="card" aria-labelledby="titulo-rutherford">
-                <div class="card-texto">
-                    <h2 id="titulo-rutherford">3. Modelo de Rutherford (1911)</h2>
-                    <p><strong>Apelido:</strong> Modelo Planetário</p>
-                    <p>Com o famoso experimento da folha de ouro, Ernest Rutherford descobriu que o átomo possui um grande espaço vazio.</p>
-                    <ul>
-                        <li>A maior parte da massa e toda a carga positiva estão concentradas em um núcleo central muito pequeno.</li>
-                        <li>Os elétrons giram ao redor do núcleo em uma região chamada eletrosfera.</li>
-                    </ul>
-                </div>
-                <div class="card-visual">
-                    <svg width="160" height="160" viewBox="0 0 160 160" role="img" aria-labelledby="svg-ruth-titulo svg-ruth-desc">
-                        <title id="svg-ruth-titulo">Representação do Modelo de Rutherford</title>
-                        <desc id="svg-ruth-desc">Um pequeno círculo vermelho no centro representando o núcleo, cercado por três órbitas elípticas inclinadas com pequenos elétrons azuis.</desc>
-                        <ellipse cx="80" cy="80" rx="70" ry="25" transform="rotate(30 80 80)" fill="none" stroke="#0f172a" stroke-width="2.5" />
-                        <ellipse cx="80" cy="80" rx="70" ry="25" transform="rotate(-30 80 80)" fill="none" stroke="#0f172a" stroke-width="2.5" />
-                        <ellipse cx="80" cy="80" rx="70" ry="25" transform="rotate(90 80 80)" fill="none" stroke="#0f172a" stroke-width="2.5" />
-                        <circle cx="80" cy="80" r="14" fill="#dc2626" />
-                        <circle cx="20" cy="45" r="6" fill="#1d4ed8" />
-                        <circle cx="140" cy="115" r="6" fill="#1d4ed8" />
-                        <circle cx="80" cy="10" r="6" fill="#1d4ed8" />
-                    </svg>
-                </div>
-            </article>
+        // Aumentar Fonte
+        btnAumentar.addEventListener('click', () => {
+            if (tamanhoFonteAtual < 140) {
+                tamanhoFonteAtual += 10;
+                htmlElement.style.fontSize = tamanhoFonteAtual + '%';
+            }
+        });
 
-            <!-- Modelo de Bohr -->
-            <article id="bohr" class="card" aria-labelledby="titulo-bohr">
-                <div class="card-texto">
-                    <h2 id="titulo-bohr">4. Modelo de Bohr (1913)</h2>
-                    <p><strong>Apelido:</strong> Rutherford-Bohr (Níveis de Energia)</p>
-                    <p>Niels Bohr aperfeiçoou o modelo de Rutherford explicando por que os elétrons não perdem energia e caem no núcleo.</p>
-                    <ul>
-                        <li>Os elétrons giram em órbitas circulares específicas chamadas camadas ou níveis de energia.</li>
-                        <li>Ao absorver energia, o elétron salta para uma camada mais externa; ao retornar, emite luz.</li>
-                    </ul>
-                </div>
-                <div class="card-visual">
-                    <svg width="160" height="160" viewBox="0 0 160 160" role="img" aria-labelledby="svg-bohr-titulo svg-bohr-desc">
-                        <title id="svg-bohr-titulo">Representação do Modelo de Bohr</title>
-                        <desc id="svg-bohr-desc">Um núcleo vermelho central cercado por dois círculos concêntricos representando camadas de energia bem definidas, com elétrons azuis sobre as linhas.</desc>
-                        <circle cx="80" cy="80" r="42" fill="none" stroke="#0f172a" stroke-width="2.5" stroke-dasharray="5,3" />
-                        <circle cx="80" cy="80" r="68" fill="none" stroke="#0f172a" stroke-width="2.5" />
-                        <circle cx="80" cy="80" r="14" fill="#dc2626" />
-                        <circle cx="80" cy="38" r="7" fill="#1d4ed8" />
-                        <circle cx="148" cy="80" r="7" fill="#1d4ed8" />
-                        <circle cx="12" cy="80" r="7" fill="#1d4ed8" />
-                    </svg>
-                </div>
-            </article>
+        // Diminuir Fonte
+        btnDiminuir.addEventListener('click', () => {
+            if (tamanhoFonteAtual > 80) {
+                tamanhoFonteAtual -= 10;
+                htmlElement.style.fontSize = tamanhoFonteAtual + '%';
+            }
+        });
 
-            <!-- Tabela Comparativa -->
-            <section id="comparacao" aria-labelledby="titulo-tabela">
-                <h2 id="titulo-tabela">Resumo Comparativo</h2>
-                <div class="tabela-responsiva">
-                    <table>
-                        <caption>Principais características de cada modelo atômico</caption>
-                        <thead>
-                            <tr>
-                                <th scope="col">Cientista</th>
-                                <th scope="col">Ano</th>
-                                <th scope="col">Principal Descoberta</th>
-                                <th scope="col">Estrutura Proposta</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row">John Dalton</th>
-                                <td>1803</td>
-                                <td>Conservação das massas nas reações</td>
-                                <td>Esfera maciça e indivisível</td>
-                            </tr>
-                            <tr>
+        // Resetar Configurações
+        btnResetar.addEventListener('click', () => {
+            tamanhoFonteAtual = 100;
+            htmlElement.style.fontSize = '100%';
+            document.body.classList.remove('alto-contraste');
+            btnContraste.setAttribute('aria-pressed', 'false');
+        });
+    </script>
+</body>
+</html>
