@@ -1,0 +1,22 @@
+<header> → class="cabecalho"
+
+<article> → class="cartao"
+
+<div> (dentro de <article>) → class="cartao-interno"
+
+<div> (dentro de cartao-interno) → class="cartao-frente" (e também cartao-verso, se aplicável)
+
+<img> → class="cartao-imagem"
+
+* { margin: 0; padding: 0;}.cabecalho { padding: 15px 25px;}.
+{ width: 260px; height: 200px;}
+.cartao-frente, 
+.cartao-verso { width: 100%;}.
+cartao-imagem {
+width: 100%;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;}

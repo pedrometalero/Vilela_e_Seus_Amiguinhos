@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lord of Metal!</title>
+    <style>
+        /* Configurações básicas de layout */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        header, footer {
+            background-color: #222;
+            color: white;
+            padding: 20px;
+        }
+
+        header a {
+            color: #4da6ff;
+            text-decoration: none;
+        }
+
+        main {
+            padding: 40px 20px;
+        }
+
+        /* EFEITO DOS FLASHCARDS */
+        
+        /* 1. O container que define a perspectiva 3D */
+        .cartao-container {
+            perspective: 1000px;
+            width: 300px;
+            height: 400px;
+            margin: 30px auto;
+        }
+
+        /* 2. O corpo do cartão que vai girar */
+        .cartao-corpo {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.6s ease;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            border-radius: 10px;
+        }
+
+        /* 3. A mágica do giro: quando passa o mouse, rotaciona 180 graus */
+        .cartao-container:hover .cartao-corpo {
+            transform: rotateY(180deg);
+        }
+
+        /* 4. Propriedades comuns da frente e do verso */
+        .cartao-frente, .cartao-verso {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            backface-visibility: hidden; /* Esconde a parte de trás enquanto gira */
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+            padding: 15px;
+            box-sizing: border-box;
+        }
+
+        /* 5. O verso precisa começar já virado */
+        .cartao-verso {
+            background-color: #eaeaea;
+            transform: rotateY(180deg);
+        }
+
+        /* Ajuste do tamanho das imagens dentro do cartão */
+        .cartao-imagem {
+            max-width: 100%;
+            max-height: 70%;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Lord of Metal!</h1>
+        <nav>
+            <a href="#">Início</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Compreenda melhor passando o mouse</h2>
+        
+        <section>
+            <article>
+                <!-- Container principal do Flashcard -->
+                <div class="cartao-container">
+                    <div class="cartao-corpo">
+                        
+                        <!-- LADO DA FRENTE -->
+                        <div class="cartao-frente">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTamoX-qatb8ytbrS4vlSvPJOgsEZc75Sp7nYo3c3ZUD2qRvN8_rxAgQ0Gl&s=10" alt="Einstein" class="cartao-imagem">
+                            <p>Agressividade é o que os define!</p>
+                        </div>
+                        
+                        <!-- LADO DO VERSO -->
+                        <div class="cartao-verso">
+                            <img src="https://vejasp.abril.com.br/wp-content/uploads/2026/10/SLAYER-photoshoot-06.07.2013-HR-%C2%A9-Tim-Tronckoe-14-credito-Tim-Tronckoe.jpg?quality=70&w=960&h=640&crop=1&strip=all" alt="Fórmula" class="cartao-imagem">
+                            <p>SLAYER!!!</p>
+                        </div>
+
+                    </div>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <p>Projeto feito por Pedro Vilela.</p>
+    </footer>
+</body>
+</html>
