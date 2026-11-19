@@ -1,89 +1,78 @@
-* {
-  box-sizing: border-box;
+/* Configurações básicas de layout */
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-color: #f4f4f9;
   margin: 0;
   padding: 0;
 }
 
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f9;
-  color: #222;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  text-align: center;
+header, footer {
+  background-color: #222;
+  color: white;
+  padding: 20px;
 }
 
-header,
-footer {
-  background-color: #222;
-  color: #fff;
-  padding: 20px;
+header a {
+  color: #4da6ff;
+  text-decoration: none;
 }
 
 main {
-  flex: 1;
   padding: 40px 20px;
 }
 
-/* 1. Área externa que cria a profundidade 3D */
-.flashcard {
-  width: 320px;
-  height: 420px;
-  margin: 30px auto;
+/* EFEITO DOS FLASHCARDS */
+/* 1. O container que define a perspectiva 3D */
+.cartao-container {
   perspective: 1000px;
+  width: 300px;
+  height: 400px;
+  margin: 30px auto;
 }
 
-/* 2. Estrutura interna que gira */
-.flashcard-inner {
+/* 2. O corpo do cartão que vai girar */
+.cartao-corpo {
   width: 100%;
   height: 100%;
   position: relative;
-  transition: transform 0.6s ease;
   transform-style: preserve-3d;
+  transition: transform 0.6s ease;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  border-radius: 10px;
 }
 
-/* 3. Gira o cartão ao passar o mouse */
-.flashcard:hover .flashcard-inner {
+/* 3. A mágica do giro: quando passa o mouse, rotaciona 180 graus */
+.cartao-container:hover .cartao-corpo {
   transform: rotateY(180deg);
 }
 
-/* 4. Estilo comum da frente e do verso */
-.flashcard-front,
-.flashcard-back {
+/* 4. Propriedades comuns da frente e do verso */
+.cartao-frente, .cartao-verso {
   width: 100%;
   height: 100%;
   position: absolute;
-  top: 0;
-  left: 0;
-  backface-visibility: hidden;
-  border-radius: 12px;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-  padding: 20px;
+  backface-visibility: hidden; /* Esconde a parte de trás enquanto gira */
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 12px;
+  background-color: white;
+  padding: 15px;
+  box-sizing: border-box;
 }
 
-/* 5. Visual da frente */
-.flashcard-front {
-  background-color: #ffffff;
-  color: #222;
-}
-
-/* 6. Visual do verso (já começa virado em 180 graus) */
-.flashcard-back {
-  background-color: #1a1a1a;
-  color: #ffffff;
+/* 5. O verso precisa começar já virado */
+.cartao-verso {
+  background-color: #eaeaea;
   transform: rotateY(180deg);
 }
 
-/* Ajuste das imagens */
-.flashcard-img {
-  width: 100%;
-  height: 220px;
+/* Ajuste do tamanho das imagens dentro do cartão */
+.cartao-imagem {
+  max-width: 100%;
+  max-height: 70%;
   object-fit: cover;
-  border-radius: 8px;
+  border-radius: 5px;
 }
