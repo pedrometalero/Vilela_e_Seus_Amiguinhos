@@ -1,128 +1,158 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lord of Metal!</title>
-    <style>
-        /* Configurações básicas de layout */
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: #f4f4f9;
-            margin: 0;
-            padding: 0;
-        }
-
-        header, footer {
-            background-color: #222;
-            color: white;
-            padding: 20px;
-        }
-
-        header a {
-            color: #4da6ff;
-            text-decoration: none;
-        }
-
-        main {
-            padding: 40px 20px;
-        }
-
-        /* EFEITO DOS FLASHCARDS */
-        
-        /* 1. O container que define a perspectiva 3D */
-        .cartao-container {
-            perspective: 1000px;
-            width: 300px;
-            height: 400px;
-            margin: 30px auto;
-        }
-
-        /* 2. O corpo do cartão que vai girar */
-        .cartao-corpo {
-            width: 100%;
-            height: 100%;
-            position: relative;
-            transform-style: preserve-3d;
-            transition: transform 0.6s ease;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-            border-radius: 10px;
-        }
-
-        /* 3. A mágica do giro: quando passa o mouse, rotaciona 180 graus */
-        .cartao-container:hover .cartao-corpo {
-            transform: rotateY(180deg);
-        }
-
-        /* 4. Propriedades comuns da frente e do verso */
-        .cartao-frente, .cartao-verso {
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            backface-visibility: hidden; /* Esconde a parte de trás enquanto gira */
-            border-radius: 10px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background-color: white;
-            padding: 15px;
-            box-sizing: border-box;
-        }
-
-        /* 5. O verso precisa começar já virado */
-        .cartao-verso {
-            background-color: #eaeaea;
-            transform: rotateY(180deg);
-        }
-
-        /* Ajuste do tamanho das imagens dentro do cartão */
-        .cartao-imagem {
-            max-width: 100%;
-            max-height: 70%;
-            object-fit: cover;
-            border-radius: 5px;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Site educativo e acessível sobre a evolução dos modelos atômicos na ciência: Dalton, Thomson, Rutherford e Bohr.">
+    <title>Modelos Atômicos | Ciência Acessível</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>Lord of Metal!</h1>
-        <nav>
-            <a href="#">Início</a>
-        </nav>
+    <!-- Link de salto para navegação por teclado e leitores de tela -->
+    <a href="#conteudo-principal" class="skip-link">Pular para o conteúdo principal</a>
+
+    <header role="banner">
+        <div class="container">
+            <h1>Evolução dos Modelos Atômicos</h1>
+            <p>Uma jornada acessível pela história da estrutura da matéria.</p>
+        </div>
     </header>
 
-    <main>
-        <h2>Compreenda melhor passando o mouse</h2>
-        
-        <section>
-            <article>
-                <!-- Container principal do Flashcard -->
-                <div class="cartao-container">
-                    <div class="cartao-corpo">
-                        
-                        <!-- LADO DA FRENTE -->
-                        <div class="cartao-frente">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTamoX-qatb8ytbrS4vlSvPJOgsEZc75Sp7nYo3c3ZUD2qRvN8_rxAgQ0Gl&s=10" alt="Einstein" class="cartao-imagem">
-                            <p>Agressividade é o que os define!</p>
-                        </div>
-                        
-                        <!-- LADO DO VERSO -->
-                        <div class="cartao-verso">
-                            <img src="https://vejasp.abril.com.br/wp-content/uploads/2026/10/SLAYER-photoshoot-06.07.2013-HR-%C2%A9-Tim-Tronckoe-14-credito-Tim-Tronckoe.jpg?quality=70&w=960&h=640&crop=1&strip=all" alt="Fórmula" class="cartao-imagem">
-                            <p>SLAYER!!!</p>
-                        </div>
+    <nav aria-label="Menu de navegação principal">
+        <div class="container">
+            <ul>
+                <li><a href="#dalton">Dalton (1803)</a></li>
+                <li><a href="#thomson">Thomson (1897)</a></li>
+                <li><a href="#rutherford">Rutherford (1911)</a></li>
+                <li><a href="#bohr">Bohr (1913)</a></li>
+                <li><a href="#comparacao">Tabela Comparativa</a></li>
+            </ul>
+        </div>
+    </nav>
 
-                    </div>
+    <main id="conteudo-principal" tabindex="-1">
+        <div class="container">
+            <section aria-labelledby="intro-titulo">
+                <h2 id="intro-titulo">O que é um Modelo Atômico?</h2>
+                <p>Na ciência, um modelo atômico é uma representação teórica usada para explicar a estrutura e o comportamento dos átomos, que são as unidades básicas da matéria. Ao longo dos séculos, novos experimentos permitiram aprimorar essas teorias.</p>
+            </section>
+
+            <!-- Modelo de Dalton -->
+            <article id="dalton" class="card" aria-labelledby="titulo-dalton">
+                <div class="card-texto">
+                    <h2 id="titulo-dalton">1. Modelo de Dalton (1803)</h2>
+                    <p><strong>Apelido:</strong> Bola de Bilhar</p>
+                    <p>John Dalton propôs que toda a matéria é formada por partículas extremamente pequenas, maciças, esféricas e indivisíveis chamadas átomos.</p>
+                    <ul>
+                        <li>Átomos de um mesmo elemento são idênticos em massa e propriedades.</li>
+                        <li>Reações químicas são apenas rearranjos de átomos.</li>
+                    </ul>
+                </div>
+                <div class="card-visual">
+                    <svg width="160" height="160" viewBox="0 0 160 160" role="img" aria-labelledby="svg-dalton-titulo svg-dalton-desc">
+                        <title id="svg-dalton-titulo">Representação do Modelo de Dalton</title>
+                        <desc id="svg-dalton-desc">Uma esfera sólida e uniforme de cor azul escuro, representando uma bola de bilhar maciça e indivisível.</desc>
+                        <circle cx="80" cy="80" r="65" fill="#1d4ed8" stroke="#0f172a" stroke-width="4" />
+                    </svg>
                 </div>
             </article>
-        </section>
-    </main>
 
-    <footer>
-        <p>Projeto feito por Pedro Vilela.</p>
-    </footer>
-</body>
-</html>
+            <!-- Modelo de Thomson -->
+            <article id="thomson" class="card" aria-labelledby="titulo-thomson">
+                <div class="card-texto">
+                    <h2 id="titulo-thomson">2. Modelo de Thomson (1897)</h2>
+                    <p><strong>Apelido:</strong> Pudim de Passas</p>
+                    <p>Após descobrir o elétron usando tubos de raios catódicos, J.J. Thomson demonstrou que o átomo era divisível.</p>
+                    <ul>
+                        <li>O átomo seria uma esfera de carga elétrica positiva.</li>
+                        <li>Elétrons (cargas negativas) estariam incrustados nessa esfera, neutralizando a carga total.</li>
+                    </ul>
+                </div>
+                <div class="card-visual">
+                    <svg width="160" height="160" viewBox="0 0 160 160" role="img" aria-labelledby="svg-thomson-titulo svg-thomson-desc">
+                        <title id="svg-thomson-titulo">Representação do Modelo de Thomson</title>
+                        <desc id="svg-thomson-desc">Uma esfera amarela representando a massa positiva com pequenos círculos azuis espalhados por dentro, representando os elétrons negativos.</desc>
+                        <circle cx="80" cy="80" r="65" fill="#fde047" stroke="#0f172a" stroke-width="4" />
+                        <circle cx="55" cy="55" r="9" fill="#1d4ed8" />
+                        <circle cx="105" cy="55" r="9" fill="#1d4ed8" />
+                        <circle cx="80" cy="80" r="9" fill="#1d4ed8" />
+                        <circle cx="50" cy="105" r="9" fill="#1d4ed8" />
+                        <circle cx="110" cy="100" r="9" fill="#1d4ed8" />
+                        <circle cx="80" cy="120" r="9" fill="#1d4ed8" />
+                    </svg>
+                </div>
+            </article>
+
+            <!-- Modelo de Rutherford -->
+            <article id="rutherford" class="card" aria-labelledby="titulo-rutherford">
+                <div class="card-texto">
+                    <h2 id="titulo-rutherford">3. Modelo de Rutherford (1911)</h2>
+                    <p><strong>Apelido:</strong> Modelo Planetário</p>
+                    <p>Com o famoso experimento da folha de ouro, Ernest Rutherford descobriu que o átomo possui um grande espaço vazio.</p>
+                    <ul>
+                        <li>A maior parte da massa e toda a carga positiva estão concentradas em um núcleo central muito pequeno.</li>
+                        <li>Os elétrons giram ao redor do núcleo em uma região chamada eletrosfera.</li>
+                    </ul>
+                </div>
+                <div class="card-visual">
+                    <svg width="160" height="160" viewBox="0 0 160 160" role="img" aria-labelledby="svg-ruth-titulo svg-ruth-desc">
+                        <title id="svg-ruth-titulo">Representação do Modelo de Rutherford</title>
+                        <desc id="svg-ruth-desc">Um pequeno círculo vermelho no centro representando o núcleo, cercado por três órbitas elípticas inclinadas com pequenos elétrons azuis.</desc>
+                        <ellipse cx="80" cy="80" rx="70" ry="25" transform="rotate(30 80 80)" fill="none" stroke="#0f172a" stroke-width="2.5" />
+                        <ellipse cx="80" cy="80" rx="70" ry="25" transform="rotate(-30 80 80)" fill="none" stroke="#0f172a" stroke-width="2.5" />
+                        <ellipse cx="80" cy="80" rx="70" ry="25" transform="rotate(90 80 80)" fill="none" stroke="#0f172a" stroke-width="2.5" />
+                        <circle cx="80" cy="80" r="14" fill="#dc2626" />
+                        <circle cx="20" cy="45" r="6" fill="#1d4ed8" />
+                        <circle cx="140" cy="115" r="6" fill="#1d4ed8" />
+                        <circle cx="80" cy="10" r="6" fill="#1d4ed8" />
+                    </svg>
+                </div>
+            </article>
+
+            <!-- Modelo de Bohr -->
+            <article id="bohr" class="card" aria-labelledby="titulo-bohr">
+                <div class="card-texto">
+                    <h2 id="titulo-bohr">4. Modelo de Bohr (1913)</h2>
+                    <p><strong>Apelido:</strong> Rutherford-Bohr (Níveis de Energia)</p>
+                    <p>Niels Bohr aperfeiçoou o modelo de Rutherford explicando por que os elétrons não perdem energia e caem no núcleo.</p>
+                    <ul>
+                        <li>Os elétrons giram em órbitas circulares específicas chamadas camadas ou níveis de energia.</li>
+                        <li>Ao absorver energia, o elétron salta para uma camada mais externa; ao retornar, emite luz.</li>
+                    </ul>
+                </div>
+                <div class="card-visual">
+                    <svg width="160" height="160" viewBox="0 0 160 160" role="img" aria-labelledby="svg-bohr-titulo svg-bohr-desc">
+                        <title id="svg-bohr-titulo">Representação do Modelo de Bohr</title>
+                        <desc id="svg-bohr-desc">Um núcleo vermelho central cercado por dois círculos concêntricos representando camadas de energia bem definidas, com elétrons azuis sobre as linhas.</desc>
+                        <circle cx="80" cy="80" r="42" fill="none" stroke="#0f172a" stroke-width="2.5" stroke-dasharray="5,3" />
+                        <circle cx="80" cy="80" r="68" fill="none" stroke="#0f172a" stroke-width="2.5" />
+                        <circle cx="80" cy="80" r="14" fill="#dc2626" />
+                        <circle cx="80" cy="38" r="7" fill="#1d4ed8" />
+                        <circle cx="148" cy="80" r="7" fill="#1d4ed8" />
+                        <circle cx="12" cy="80" r="7" fill="#1d4ed8" />
+                    </svg>
+                </div>
+            </article>
+
+            <!-- Tabela Comparativa -->
+            <section id="comparacao" aria-labelledby="titulo-tabela">
+                <h2 id="titulo-tabela">Resumo Comparativo</h2>
+                <div class="tabela-responsiva">
+                    <table>
+                        <caption>Principais características de cada modelo atômico</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">Cientista</th>
+                                <th scope="col">Ano</th>
+                                <th scope="col">Principal Descoberta</th>
+                                <th scope="col">Estrutura Proposta</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">John Dalton</th>
+                                <td>1803</td>
+                                <td>Conservação das massas nas reações</td>
+                                <td>Esfera maciça e indivisível</td>
+                            </tr>
+                            <tr>
