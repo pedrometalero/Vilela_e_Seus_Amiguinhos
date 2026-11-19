@@ -1,49 +1,45 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lord of Metal! - Flashcard</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <header>
-      <h1>Lord of Metal!</h1>
-    </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lord of Metal!</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Lord of Metal!</h1>
+    <nav>
+      <a href="#">Início</a>
+    </nav>
+  </header>
 
-    <main>
-      <h2>Passe o mouse no cartão para ver o verso</h2>
+  <main>
+    <h2>Compreenda melhor passando o mouse</h2>
+    <section>
+      <article>
+        <!-- Container principal do Flashcard -->
+        <div class="cartao-container">
+          <div class="cartao-corpo">
+            <!-- LADO DA FRENTE -->
+            <div class="cartao-frente">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTamoX-qatb8ytbrS4vlSvPJOgsEZc75Sp7nYo3c3ZUD2qRvN8_rxAgQ0Gl&s=10" alt="Einstein" class="cartao-imagem">
+              <p>Agressividade é o que os define!</p>
+            </div>
 
-      <!-- Container do Flashcard -->
-      <div class="flashcard">
-        <div class="flashcard-inner">
-          <!-- FRENTE DO CARTÃO -->
-          <div class="flashcard-front">
-            <img
-              src="https://gstatic.com"
-              alt="Logo ou imagem da frente"
-              class="flashcard-img"
-            />
-            <h3>Dica</h3>
-            <p>Agressividade e velocidade são o que definem esta banda!</p>
-          </div>
-
-          <!-- VERSO DO CARTÃO -->
-          <div class="flashcard-back">
-            <img
-              src="https://abril.com.br"
-              alt="Integrantes da banda Slayer"
-              class="flashcard-img"
-            />
-            <h3>Resposta</h3>
-            <p><strong>SLAYER!</strong></p>
+            <!-- LADO DO VERSO -->
+            <div class="cartao-verso">
+              <img src="https://vejasp.abril.com.br/wp-content/uploads/2026/10/SLAYER-photoshoot-06.07.2013-HR-%C2%A9-Tim-Tronckoe-14-credito-Tim-Tronckoe.jpg?quality=70&w=960&h=640&crop=1&strip=all" alt="Fórmula" class="cartao-imagem">
+              <p>SLAYER!!!</p>
+            </div>
           </div>
         </div>
-      </div>
-    </main>
+      </article>
+    </section>
+  </main>
 
-    <footer>
-      <p>Projeto feito por Pedro Vilela.</p>
-    </footer>
-  </body>
+  <footer>
+    <p>Projeto feito por Pedro Vilela.</p>
+  </footer>
+</body>
 </html>
