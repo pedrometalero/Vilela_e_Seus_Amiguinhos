@@ -302,6 +302,97 @@
   </script>
 
 </body>
+    <!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exemplo de Acessibilidade - Espaçamento de Letras</title>
+  <style>
+    /* Estilo básico da página */
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      padding: 20px;
+      transition: letter-spacing 0.2s ease; /* Transição suave */
+    }
+
+    /* Classe ativada pelo botão para aumentar o espaçamento */
+    body.espacamento-ampliado {
+      letter-spacing: 0.12em;
+      word-spacing: 0.16em; /* Ajuda na leitura junto com o espaçamento de letras */
+    }
+
+    /* Estilo do botão de acessibilidade */
+    #btn-acessibilidade-letras {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #005fcc;
+      color: #ffffff;
+      border: none;
+      border-radius: 50px;
+      padding: 12px 20px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
+    }
+
+    #btn-acessibilidade-letras:hover {
+      background-color: #004494;
+    }
+
+    /* Foco visível para navegação via teclado */
+    #btn-acessibilidade-letras:focus {
+      outline: 3px solid #ffbf47;
+      outline-offset: 2px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Conteúdo de exemplo da sua página -->
+  <main>
+    <h1>Bem-vindo ao meu projeto</h1>
+    <p>Este é um texto de exemplo para testar a funcionalidade de acessibilidade. Clique no botão no canto inferior direito para aumentar o espaçamento entre as letras e facilitar a leitura.</p>
+  </main>
+
+  <!-- Botão de Acessibilidade -->
+  <button 
+    id="btn-acessibilidade-letras" 
+    type="button" 
+    aria-pressed="false"
+    aria-label="Aumentar espaçamento entre as letras">
+    Aa Espaçamento
+  </button>
+
+  <script>
+    const btnEspacamento = document.getElementById('btn-acessibilidade-letras');
+    const body = document.body;
+
+    // Verifica se o usuário já havia ativado a opção antes
+    if (localStorage.getItem('espacamentoAtivo') === 'true') {
+      body.classList.add('espacamento-ampliado');
+      btnEspacamento.setAttribute('aria-pressed', 'true');
+    }
+
+    // Alterna o espaçamento ao clicar no botão
+    btnEspacamento.addEventListener('click', () => {
+      const estaAtivo = body.classList.toggle('espacamento-ampliado');
+      
+      // Atualiza o estado para leitores de tela
+      btnEspacamento.setAttribute('aria-pressed', estaAtivo);
+      
+      // Salva a preferência no navegador
+      localStorage.setItem('espacamentoAtivo', estaAtivo);
+    });
+  </script>
+
+</body>
+</html>
+
 </html>
 
 </html>
