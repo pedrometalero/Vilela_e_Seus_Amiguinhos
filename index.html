@@ -210,4 +210,98 @@
         });
     </script>
 </body>
+                                <!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Site com Botão de Acessibilidade</title>
+  <style>
+    /* Estilo base da página (importante ter fundo definido para a inversão funcionar bem) */
+    body {
+      background-color: #ffffff;
+      color: #111111;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      transition: filter 0.3s ease;
+    }
+
+    /* Classe que inverte todas as cores da página */
+    html.alto-contraste {
+      filter: invert(1) hue-rotate(180deg);
+    }
+
+    /* Desfaz a inversão em imagens e vídeos para não ficarem em "negativo" */
+    html.alto-contraste img,
+    html.alto-contraste video,
+    html.alto-contraste iframe {
+      filter: invert(1) hue-rotate(180deg);
+    }
+
+    /* Estilo do botão flutuante de acessibilidade */
+    #btn-acessibilidade {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 9999;
+      background-color: #005fcc;
+      color: #ffffff;
+      border: 2px solid #ffffff;
+      border-radius: 50px;
+      padding: 12px 20px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    #btn-acessibilidade:hover {
+      background-color: #004499;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Botão de Acessibilidade -->
+  <button id="btn-acessibilidade" aria-pressed="false" aria-label="Inverter cores da página">
+    🌓 Inverter Cores
+  </button>
+
+  <!-- Conteúdo de exemplo do seu site -->
+  <main>
+    <h1>Bem-vindo ao meu projeto</h1>
+    <p>Este é um texto preto em um fundo branco. Clique no botão no canto inferior direito para inverter as cores.</p>
+    <img src="https://placeholder.com" alt="Imagem de exemplo que mantém as cores originais">
+  </main>
+
+  <script>
+    const btnAcessibilidade = document.getElementById('btn-acessibilidade');
+    const htmlElement = document.documentElement;
+
+    // Verifica se o usuário já havia ativado o modo anteriormente
+    if (localStorage.getItem('modoInverso') === 'ativo') {
+      htmlElement.classList.add('alto-contraste');
+      btnAcessibilidade.setAttribute('aria-pressed', 'true');
+    }
+
+    // Alterna o modo ao clicar no botão
+    btnAcessibilidade.addEventListener('click', () => {
+      htmlElement.classList.toggle('alto-contraste');
+      
+      const estaAtivo = htmlElement.classList.contains('alto-contraste');
+      btnAcessibilidade.setAttribute('aria-pressed', estaAtivo);
+
+      // Salva a escolha no navegador
+      if (estaAtivo) {
+        localStorage.setItem('modoInverso', 'ativo');
+      } else {
+        localStorage.removeItem('modoInverso');
+      }
+    });
+  </script>
+
+</body>
+</html>
+
 </html>
