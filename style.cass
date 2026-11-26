@@ -1,30 +1,26 @@
 /* Variáveis de Cores (Tema Padrão) */
 :root {
-    --bg-body: #f4f6f9;
-    --bg-card: #ffffff;
-    --bg-header: #1e3a8a;
-    --bg-barra: #0f172a;
-    --texto-principal: #1e293b;
-    --texto-claro: #ffffff;
-    --destaque: #2563eb;
-    --borda: #cbd5e1;
-    --foco: #f59e0b;
+    --cor-fundo: #f4f6f9;
+    --cor-card: #ffffff;
+    --cor-texto: #1e293b;
+    --cor-primaria: #0f4c81;
+    --cor-primaria-escura: #093154;
+    --cor-borda: #cbd5e1;
+    --cor-foco: #f59e0b;
 }
 
-/* Tema de Alto Contraste */
+/* Variáveis de Cores (Tema Alto Contraste) */
 body.alto-contraste {
-    --bg-body: #000000;
-    --bg-card: #000000;
-    --bg-header: #000000;
-    --bg-barra: #111111;
-    --texto-principal: #ffffff;
-    --texto-claro: #ffff00;
-    --destaque: #ffff00;
-    --borda: #ffff00;
-    --foco: #00ffff;
+    --cor-fundo: #000000;
+    --cor-card: #000000;
+    --cor-texto: #ffffff;
+    --cor-primaria: #ffff00;
+    --cor-primaria-escura: #000000;
+    --cor-borda: #ffff00;
+    --cor-foco: #00ffff;
 }
 
-/* Reset e Base */
+/* Reset Básico */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -32,43 +28,35 @@ body.alto-contraste {
 }
 
 html {
-    font-size: 100%;
+    font-size: 100%; /* Facilita o redimensionamento via rem */
     scroll-behavior: smooth;
 }
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: var(--bg-body);
-    color: var(--texto-principal);
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
     line-height: 1.6;
     transition: background-color 0.2s, color 0.2s;
 }
 
-/* Modo Fonte Legível (Auxílio para Dislexia e Baixa Visão) */
-body.fonte-legivel {
-    font-family: 'Comic Sans MS', 'OpenDyslexic', Arial, sans-serif;
-    letter-spacing: 0.08em;
-    word-spacing: 0.16em;
-    line-height: 1.9;
-}
-
 /* Foco visível para navegação via teclado */
-a:focus, button:focus {
-    outline: 3px solid var(--foco);
+:focus-visible {
+    outline: 3px solid var(--cor-foco);
     outline-offset: 3px;
 }
 
-/* Skip Link (Pular para o conteúdo) */
+/* Link de salto acessível */
 .skip-link {
     position: absolute;
     top: -50px;
     left: 10px;
-    background: var(--foco);
-    color: #000;
+    background: var(--cor-primaria);
+    color: #fff;
     padding: 10px 15px;
-    font-weight: bold;
     z-index: 1000;
     text-decoration: none;
+    font-weight: bold;
     border-radius: 4px;
 }
 
@@ -76,22 +64,24 @@ a:focus, button:focus {
     top: 10px;
 }
 
+body.alto-contraste .skip-link {
+    background: #ffff00;
+    color: #000000;
+}
+
 /* Container padrão */
 .container {
-    max-width: 1000px;
+    max-width: 960px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
 /* Barra de Acessibilidade */
 .barra-acessibilidade {
-    background-color: var(--bg-barra);
+    background-color: var(--cor-primaria-escura);
     color: #ffffff;
     padding: 10px 0;
-    border-bottom: 2px solid var(--borda);
-    position: sticky;
-    top: 0;
-    z-index: 999;
+    border-bottom: 1px solid var(--cor-borda);
 }
 
 .barra-acessibilidade .container {
@@ -99,22 +89,24 @@ a:focus, button:focus {
     flex-wrap: wrap;
     align-items: center;
     gap: 10px;
+    justify-content: flex-end;
 }
 
 .barra-acessibilidade span {
+    font-size: 0.9rem;
     font-weight: bold;
     margin-right: 5px;
 }
 
 .barra-acessibilidade button {
     background-color: #ffffff;
-    color: #0f172a;
+    color: #0f4c81;
     border: 2px solid transparent;
-    padding: 6px 12px;
-    border-radius: 5px;
-    font-weight: bold;
-    cursor: pointer;
+    padding: 5px 12px;
     font-size: 0.9rem;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
 .barra-acessibilidade button:hover {
@@ -127,96 +119,99 @@ body.alto-contraste .barra-acessibilidade button {
     border: 2px solid #ffff00;
 }
 
-body.alto-contraste .barra-acessibilidade button[aria-pressed="true"] {
+body.alto-contraste .barra-acessibilidade button:hover {
     background-color: #ffff00;
     color: #000000;
 }
 
 /* Cabeçalho */
-header {
-    background-color: var(--bg-header);
-    color: var(--texto-claro);
-    padding: 40px 0 25px;
+.cabecalho {
+    background-color: var(--cor-primaria);
+    color: #ffffff;
+    padding: 30px 0;
     text-align: center;
-    border-bottom: 3px solid var(--borda);
+    border-bottom: 2px solid var(--cor-borda);
 }
 
-header h1 {
+body.alto-contraste .cabecalho {
+    background-color: #000000;
+    color: #ffff00;
+}
+
+.cabecalho h1 {
     font-size: 2.2rem;
     margin-bottom: 10px;
 }
 
-header p {
+.cabecalho p {
     font-size: 1.1rem;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 }
 
-nav ul {
+/* Menu de Navegação */
+.menu-navegacao {
     list-style: none;
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
-    gap: 12px;
+    flex-wrap: wrap;
+    gap: 15px;
 }
 
-nav a {
-    color: var(--texto-claro);
+.menu-navegacao a {
+    color: #ffffff;
     text-decoration: none;
     font-weight: bold;
     padding: 8px 16px;
-    border: 2px solid var(--texto-claro);
+    border: 1px solid rgba(255, 255, 255, 0.4);
     border-radius: 20px;
     display: inline-block;
 }
 
-nav a:hover {
-    background-color: var(--texto-claro);
-    color: var(--bg-header);
+.menu-navegacao a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
 }
 
-/* Conteúdo Principal */
-main {
-    padding: 40px 20px;
+body.alto-contraste .menu-navegacao a {
+    color: #ffff00;
+    border-color: #ffff00;
 }
 
-.introducao {
-    background-color: var(--bg-card);
-    padding: 25px;
-    border-radius: 10px;
-    border: 2px solid var(--borda);
-    margin-bottom: 30px;
-}
-
-.introducao h2 {
-    color: var(--destaque);
-    margin-bottom: 10px;
+body.alto-contraste .menu-navegacao a:hover {
+    background-color: #ffff00;
+    color: #000000;
 }
 
 /* Cards dos Modelos Atômicos */
+main {
+    padding: 30px 0;
+}
+
 .card-modelo {
-    background-color: var(--bg-card);
-    border: 2px solid var(--borda);
-    border-radius: 10px;
+    background-color: var(--cor-card);
+    border: 1px solid var(--cor-borda);
+    border-radius: 8px;
     padding: 25px;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
+    justify-content: space-between;
     gap: 25px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
 }
 
 .texto-modelo {
-    flex: 1 1 55%;
+    flex: 1;
 }
 
 .texto-modelo h2 {
-    color: var(--destaque);
-    margin-bottom: 12px;
+    color: var(--cor-primaria);
     font-size: 1.5rem;
+    margin-bottom: 12px;
 }
 
 .texto-modelo p {
     margin-bottom: 12px;
+    font-size: 1rem;
 }
 
 .texto-modelo ul {
@@ -224,51 +219,58 @@ main {
 }
 
 .texto-modelo li {
-    margin-bottom: 8px;
+    margin-bottom: 6px;
 }
 
+/* Imagens controladas para não ficarem grandes */
 .imagem-modelo {
-    flex: 1 1 35%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: rgba(148, 163, 184, 0.1);
-    padding: 15px;
-    border-radius: 8px;
-    border: 1px solid var(--borda);
-}
-
-.imagem-modelo svg {
+    flex-shrink: 0;
     width: 180px;
-    height: 180px;
-    color: var(--texto-principal);
+    text-align: center;
+    background-color: #ffffff; /* Mantém fundo claro para transparência dos SVGs no modo alto contraste */
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid var(--cor-borda);
 }
 
-.legenda {
-    margin-top: 10px;
-    font-size: 0.85rem;
-    text-align: center;
-    font-style: italic;
+.imagem-modelo img {
+    width: 140px;
+    height: 140px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+}
+
+.imagem-modelo figcaption {
+    font-size: 0.8rem;
+    color: #333333;
+    margin-top: 8px;
 }
 
 /* Rodapé */
-footer {
-    background-color: var(--bg-header);
-    color: var(--texto-claro);
+.rodape {
+    background-color: var(--cor-primaria-escura);
+    color: #ffffff;
     text-align: center;
     padding: 20px 0;
-    border-top: 3px solid var(--borda);
-    margin-top: 40px;
+    border-top: 1px solid var(--cor-borda);
+    font-size: 0.95rem;
 }
 
-/* Responsividade */
-@media (max-width: 768px) {
+body.alto-contraste .rodape {
+    color: #ffff00;
+}
+
+/* Responsividade para celulares */
+@media (max-width: 700px) {
     .card-modelo {
         flex-direction: column;
+        text-align: left;
     }
 
-    .texto-modelo, .imagem-modelo {
+    .imagem-modelo {
         width: 100%;
+        max-width: 220px;
+        margin: 0 auto;
     }
 }
