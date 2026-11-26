@@ -1,210 +1,274 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Site educativo e acessível sobre a evolução dos Modelos Atômicos: Dalton, Thomson, Rutherford e Bohr.">
-    <title>Modelos Atômicos - Química Acessível</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+/* Variáveis de Cores (Tema Padrão) */
+:root {
+    --bg-body: #f4f6f9;
+    --bg-card: #ffffff;
+    --bg-header: #1e3a8a;
+    --bg-barra: #0f172a;
+    --texto-principal: #1e293b;
+    --texto-claro: #ffffff;
+    --destaque: #2563eb;
+    --borda: #cbd5e1;
+    --foco: #f59e0b;
+}
 
-    <!-- Link para pular direto ao conteúdo (essencial para leitores de tela e teclado) -->
-    <a href="#conteudo-principal" class="skip-link">Ir direto para o conteúdo principal</a>
+/* Tema de Alto Contraste */
+body.alto-contraste {
+    --bg-body: #000000;
+    --bg-card: #000000;
+    --bg-header: #000000;
+    --bg-barra: #111111;
+    --texto-principal: #ffffff;
+    --texto-claro: #ffff00;
+    --destaque: #ffff00;
+    --borda: #ffff00;
+    --foco: #00ffff;
+}
 
-    <!-- Barra de Acessibilidade -->
-    <aside class="barra-acessibilidade" aria-label="Ferramentas de acessibilidade">
-        <div class="container">
-            <span>Acessibilidade:</span>
-            <div class="controles">
-                <button type="button" id="btn-contraste" aria-pressed="false" title="Ativar ou desativar alto contraste">
-                    Alto Contraste
-                </button>
-                <button type="button" id="btn-diminuir-fonte" aria-label="Diminuir tamanho da fonte" title="Diminuir fonte">
-                    A-
-                </button>
-                <button type="button" id="btn-reset-fonte" aria-label="Restaurar tamanho padrão da fonte" title="Tamanho padrão">
-                    A
-                </button>
-                <button type="button" id="btn-aumentar-fonte" aria-label="Aumentar tamanho da fonte" title="Aumentar fonte">
-                    A+
-                </button>
-                <button type="button" id="btn-espacamento" aria-pressed="false" title="Aumentar espaçamento entre letras">
-                    Espaçamento
-                </button>
-            </div>
-        </div>
-    </aside>
+/* Reset e Base */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-    <!-- Cabeçalho -->
-    <header>
-        <div class="container">
-            <h1>Evolução dos Modelos Atômicos</h1>
-            <p>Uma jornada pela história da estrutura da matéria de forma clara e acessível.</p>
-            <nav aria-label="Navegação principal">
-                <ul>
-                    <li><a href="#dalton">Dalton</a></li>
-                    <li><a href="#thomson">Thomson</a></li>
-                    <li><a href="#rutherford">Rutherford</a></li>
-                    <li><a href="#bohr">Bohr</a></li>
-                    <li><a href="#resumo">Tabela Comparativa</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+html {
+    font-size: 100%;
+    scroll-behavior: smooth;
+}
 
-    <!-- Conteúdo Principal -->
-    <main id="conteudo-principal" class="container" tabindex="-1">
-        
-        <section class="introducao">
-            <h2>O que é um Modelo Atômico?</h2>
-            <p>
-                Um modelo atômico é uma representação científica criada para explicar como os átomos são formados e como se comportam. Como não podemos enxergar um átomo diretamente a olho nu, os cientistas utilizaram experimentos para propor teorias que evoluíram ao longo dos séculos.
-            </p>
-        </section>
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-body);
+    color: var(--texto-principal);
+    line-height: 1.6;
+    transition: background-color 0.2s, color 0.2s;
+}
 
-        <section id="dalton" class="card-modelo" aria-labelledby="titulo-dalton">
-            <h2 id="titulo-dalton">1. Modelo de Dalton (1803) — "Bola de Bilhar"</h2>
-            <p><strong>Cientista:</strong> John Dalton</p>
-            <p>
-                Dalton retomou a ideia filosófica grega de que a matéria é feita de partículas minúsculas. Para ele, o átomo era uma esfera <strong>maciça, indivisível e indestrutível</strong>.
-            </p>
-            <ul>
-                <li>Átomos de um mesmo elemento químico são iguais em massa e propriedades.</li>
-                <li>Reações químicas são apenas rearranjos de átomos.</li>
-                <li>Não explicava fenômenos elétricos na matéria.</li>
-            </ul>
-        </section>
+/* Modo Fonte Legível (Auxílio para Dislexia e Baixa Visão) */
+body.fonte-legivel {
+    font-family: 'Comic Sans MS', 'OpenDyslexic', Arial, sans-serif;
+    letter-spacing: 0.08em;
+    word-spacing: 0.16em;
+    line-height: 1.9;
+}
 
-        <section id="thomson" class="card-modelo" aria-labelledby="titulo-thomson">
-            <h2 id="titulo-thomson">2. Modelo de Thomson (1897) — "Pudim de Passas"</h2>
-            <p><strong>Cientista:</strong> Joseph John Thomson</p>
-            <p>
-                Ao realizar experimentos com tubos de raios catódicos, Thomson descobriu o <strong>elétron</strong> (partícula de carga negativa), provando que o átomo era divisível.
-            </p>
-            <ul>
-                <li>O átomo seria uma esfera de carga elétrica positiva.</li>
-                <li>Os elétrons (cargas negativas) estariam incrustados nessa esfera, como passas em um pudim.</li>
-                <li>O átomo como um todo era eletricamente neutro.</li>
-            </ul>
-        </section>
+/* Foco visível para navegação via teclado */
+a:focus, button:focus {
+    outline: 3px solid var(--foco);
+    outline-offset: 3px;
+}
 
-        <section id="rutherford" class="card-modelo" aria-labelledby="titulo-rutherford">
-            <h2 id="titulo-rutherford">3. Modelo de Rutherford (1911) — "Sistema Planetário"</h2>
-            <p><strong>Cientista:</strong> Ernest Rutherford</p>
-            <p>
-                Bombardeando uma finíssima lâmina de ouro com partículas alfa, Rutherford percebeu que a maioria atravessava a lâmina sem desviar, concluindo que o átomo é formado por <strong>grandes espaços vazios</strong>.
-            </p>
-            <ul>
-                <li><strong>Núcleo:</strong> Região central muito pequena, densa e com carga positiva (prótons).</li>
-                <li><strong>Eletrosfera:</strong> Região ao redor do núcleo onde os elétrons giram em alta velocidade.</li>
-            </ul>
-        </section>
+/* Skip Link (Pular para o conteúdo) */
+.skip-link {
+    position: absolute;
+    top: -50px;
+    left: 10px;
+    background: var(--foco);
+    color: #000;
+    padding: 10px 15px;
+    font-weight: bold;
+    z-index: 1000;
+    text-decoration: none;
+    border-radius: 4px;
+}
 
-        <section id="bohr" class="card-modelo" aria-labelledby="titulo-bohr">
-            <h2 id="titulo-bohr">4. Modelo de Rutherford-Bohr (1913) — "Níveis de Energia"</h2>
-            <p><strong>Cientista:</strong> Niels Bohr</p>
-            <p>
-                Bohr aprimorou o modelo de Rutherford explicando por que os elétrons não caem no núcleo ao perder energia, introduzindo a ideia de <strong>órbitas estacionárias</strong>.
-            </p>
-            <ul>
-                <li>Os elétrons giram em camadas específicas com energia definida (camadas K, L, M, N, O, P, Q).</li>
-                <li>Ao ganhar energia, o elétron salta para uma camada mais externa; ao voltar, libera energia em forma de luz (fóton).</li>
-            </ul>
-        </section>
+.skip-link:focus {
+    top: 10px;
+}
 
-        <section id="resumo" class="card-modelo" aria-labelledby="titulo-resumo">
-            <h2 id="titulo-resumo">Resumo Comparativo</h2>
-            <div class="tabela-responsiva">
-                <table>
-                    <caption>Comparação entre os principais modelos atômicos</caption>
-                    <thead>
-                        <tr>
-                            <th scope="col">Cientista</th>
-                            <th scope="col">Ano</th>
-                            <th scope="col">Apelido do Modelo</th>
-                            <th scope="col">Principal Descoberta</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>John Dalton</td>
-                            <td>1803</td>
-                            <td>Bola de Bilhar</td>
-                            <td>Átomo maciço e indivisível</td>
-                        </tr>
-                        <tr>
-                            <td>J. J. Thomson</td>
-                            <td>1897</td>
-                            <td>Pudim de Passas</td>
-                            <td>Descoberta do elétron</td>
-                        </tr>
-                        <tr>
-                            <td>Ernest Rutherford</td>
-                            <td>1911</td>
-                            <td>Sistema Planetário</td>
-                            <td>Núcleo denso e eletrosfera</td>
-                        </tr>
-                        <tr>
-                            <td>Niels Bohr</td>
-                            <td>1913</td>
-                            <td>Camadas Eletrônicas</td>
-                            <td>Níveis quantizados de energia</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
+/* Container padrão */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
 
-    </main>
+/* Barra de Acessibilidade */
+.barra-acessibilidade {
+    background-color: var(--bg-barra);
+    color: #ffffff;
+    padding: 10px 0;
+    border-bottom: 2px solid var(--borda);
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
 
-    <!-- Rodapé -->
-    <footer>
-        <div class="container">
-            <p>Projeto Educativo sobre Modelos Atômicos — Desenvolvido com foco em Acessibilidade Web (WCAG).</p>
-        </div>
-    </footer>
+.barra-acessibilidade .container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+}
 
-    <!-- Script de Acessibilidade integrado para manter o projeto em apenas 2 arquivos -->
-    <script>
-        const htmlElement = document.documentElement;
-        const bodyElement = document.body;
-        
-        // Controle de tamanho da fonte (base 100% = 16px)
-        let tamanhoFonte = 100;
+.barra-acessibilidade span {
+    font-weight: bold;
+    margin-right: 5px;
+}
 
-        document.getElementById('btn-aumentar-fonte').addEventListener('click', () => {
-            if (tamanhoFonte < 150) {
-                tamanhoFonte += 10;
-                htmlElement.style.fontSize = tamanhoFonte + '%';
-            }
-        });
+.barra-acessibilidade button {
+    background-color: #ffffff;
+    color: #0f172a;
+    border: 2px solid transparent;
+    padding: 6px 12px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
 
-        document.getElementById('btn-diminuir-fonte').addEventListener('click', () => {
-            if (tamanhoFonte > 80) {
-                tamanhoFonte -= 10;
-                htmlElement.style.fontSize = tamanhoFonte + '%';
-            }
-        });
+.barra-acessibilidade button:hover {
+    background-color: #e2e8f0;
+}
 
-        document.getElementById('btn-reset-fonte').addEventListener('click', () => {
-            tamanhoFonte = 100;
-            htmlElement.style.fontSize = '100%';
-        });
+body.alto-contraste .barra-acessibilidade button {
+    background-color: #000000;
+    color: #ffff00;
+    border: 2px solid #ffff00;
+}
 
-        // Controle de Alto Contraste
-        const btnContraste = document.getElementById('btn-contraste');
-        btnContraste.addEventListener('click', () => {
-            const ativo = bodyElement.classList.toggle('alto-contraste');
-            btnContraste.setAttribute('aria-pressed', ativo);
-        });
+body.alto-contraste .barra-acessibilidade button[aria-pressed="true"] {
+    background-color: #ffff00;
+    color: #000000;
+}
 
-        // Controle de Espaçamento de Texto (ajuda pessoas com dislexia)
-        const btnEspacamento = document.getElementById('btn-espacamento');
-        btnEspacamento.addEventListener('click', () => {
-            const ativo = bodyElement.classList.toggle('texto-espacado');
-            btnEspacamento.setAttribute('aria-pressed', ativo);
-        });
-    </script>
-</body>
-</html>
+/* Cabeçalho */
+header {
+    background-color: var(--bg-header);
+    color: var(--texto-claro);
+    padding: 40px 0 25px;
+    text-align: center;
+    border-bottom: 3px solid var(--borda);
+}
+
+header h1 {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+}
+
+nav a {
+    color: var(--texto-claro);
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 16px;
+    border: 2px solid var(--texto-claro);
+    border-radius: 20px;
+    display: inline-block;
+}
+
+nav a:hover {
+    background-color: var(--texto-claro);
+    color: var(--bg-header);
+}
+
+/* Conteúdo Principal */
+main {
+    padding: 40px 20px;
+}
+
+.introducao {
+    background-color: var(--bg-card);
+    padding: 25px;
+    border-radius: 10px;
+    border: 2px solid var(--borda);
+    margin-bottom: 30px;
+}
+
+.introducao h2 {
+    color: var(--destaque);
+    margin-bottom: 10px;
+}
+
+/* Cards dos Modelos Atômicos */
+.card-modelo {
+    background-color: var(--bg-card);
+    border: 2px solid var(--borda);
+    border-radius: 10px;
+    padding: 25px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 25px;
+}
+
+.texto-modelo {
+    flex: 1 1 55%;
+}
+
+.texto-modelo h2 {
+    color: var(--destaque);
+    margin-bottom: 12px;
+    font-size: 1.5rem;
+}
+
+.texto-modelo p {
+    margin-bottom: 12px;
+}
+
+.texto-modelo ul {
+    margin-left: 20px;
+}
+
+.texto-modelo li {
+    margin-bottom: 8px;
+}
+
+.imagem-modelo {
+    flex: 1 1 35%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(148, 163, 184, 0.1);
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid var(--borda);
+}
+
+.imagem-modelo svg {
+    width: 180px;
+    height: 180px;
+    color: var(--texto-principal);
+}
+
+.legenda {
+    margin-top: 10px;
+    font-size: 0.85rem;
+    text-align: center;
+    font-style: italic;
+}
+
+/* Rodapé */
+footer {
+    background-color: var(--bg-header);
+    color: var(--texto-claro);
+    text-align: center;
+    padding: 20px 0;
+    border-top: 3px solid var(--borda);
+    margin-top: 40px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .card-modelo {
+        flex-direction: column;
+    }
+
+    .texto-modelo, .imagem-modelo {
+        width: 100%;
+    }
+}
