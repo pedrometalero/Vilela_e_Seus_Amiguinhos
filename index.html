@@ -355,9 +355,7 @@
 
   <!-- Conteúdo de exemplo da sua página -->
   <main>
-    <h1>Bem-vindo ao meu projeto</h1>
-    <p>Este é um texto de exemplo para testar a funcionalidade de acessibilidade. Clique no botão no canto inferior direito para aumentar o espaçamento entre as letras e facilitar a leitura.</p>
-  </main>
+   
 
   <!-- Botão de Acessibilidade -->
   <button 
@@ -392,6 +390,184 @@
 
 </body>
 </html>
+    <!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site com Botão de Acessibilidade</title>
+    <style>
+        /* Use 'rem' nas fontes do seu site para que o zoom funcione corretamente */
+        html {
+            font-size: 16px; /* Tamanho padrão base */
+            transition: font-size 0.2s ease;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f9f9f9;
+            color: #222;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        h1 { font-size: 2rem; }
+        p { font-size: 1rem; }
+
+        /* --- ESTILOS DO WIDGET DE ACESSIBILIDADE --- */
+        .acessibilidade-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 8px;
+        }
+
+        .btn-acessibilidade-toggle {
+            background-color: #0056b3;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 12px 18px;
+            font-size: 16px; /* Mantém tamanho fixo para o menu não quebrar */
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-acessibilidade-toggle:hover,
+        .btn-acessibilidade-toggle:focus {
+            background-color: #003d82;
+            outline: 3px solid #ffbf47;
+        }
+
+        .acessibilidade-controles {
+            display: none; /* Escondido por padrão */
+            background-color: #ffffff;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            gap: 6px;
+        }
+
+        .acessibilidade-controles.ativo {
+            display: flex;
+        }
+
+        .acessibilidade-controles button {
+            background-color: #f0f0f0;
+            color: #111;
+            border: 1px solid #bbb;
+            border-radius: 4px;
+            padding: 8px 12px;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .acessibilidade-controles button:hover,
+        .acessibilidade-controles button:focus {
+            background-color: #e0e0e0;
+            outline: 2px solid #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Conteúdo de exemplo do seu site -->
+    <main>
+        <h1>Bem-vindo ao meu projeto no GitHub</h1>
+        <p>Este é um texto de exemplo para testar o botão de acessibilidade no canto inferior direito.</p>
+        <p>Clique no botão <strong>Acessibilidade</strong> para aumentar, diminuir ou restaurar o tamanho das letras de toda a página.</p>
+    </main>
+
+    <!-- Menu Flutuante de Acessibilidade -->
+    <aside class="acessibilidade-container" aria-label="Menu de Acessibilidade">
+        <div id="controles-fonte" class="acessibilidade-controles" role="group" aria-label="Controles de tamanho da fonte">
+            <button type="button" id="btn-diminuir" aria-label="Diminuir tamanho da fonte" title="Diminuir fonte">A-</button>
+            <button type="button" id="btn-resetar" aria-label="Restaurar tamanho padrão da fonte" title="Tamanho padrão">A</button>
+            <button type="button" id="btn-aumentar" aria-label="Aumentar tamanho da fonte" title="Aumentar fonte">A+</button>
+        </div>
+
+        <button type="button" id="btn-toggle-acessibilidade" class="btn-acessibilidade-toggle" aria-expanded="false" aria-controls="controles-fonte">
+            <span aria-hidden="true">♿</span> Acessibilidade
+        </button>
+    </aside>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const htmlElement = document.documentElement;
+            const btnToggle = document.getElementById('btn-toggle-acessibilidade');
+            const controles = document.getElementById('controles-fonte');
+            
+            const btnAumentar = document.getElementById('btn-aumentar');
+            const btnDiminuir = document.getElementById('btn-diminuir');
+            const btnResetar = document.getElementById('btn-resetar');
+
+            // Configurações de tamanho (em pixels base)
+            const tamanhoPadrao = 16;
+            const tamanhoMinimo = 12;
+            const tamanhoMaximo = 24;
+            const passo = 2;
+
+            // Recupera o tamanho salvo anteriormente, se houver
+            let tamanhoAtual = parseInt(localStorage.getItem('tamanhoFontePreferido')) || tamanhoPadrao;
+            aplicarTamanho(tamanhoAtual);
+
+            function aplicarTamanho(tamanho) {
+                htmlElement.style.fontSize = `${tamanho}px`;
+                localStorage.setItem('tamanhoFontePreferido', tamanho);
+            }
+
+            // Abrir/fechar menu de controles
+            btnToggle.addEventListener('click', () => {
+                const isAberto = controles.classList.toggle('ativo');
+                btnToggle.setAttribute('aria-expanded', isAberto);
+            });
+
+            // Aumentar fonte
+            btnAumentar.addEventListener('click', () => {
+                if (tamanhoAtual < tamanhoMaximo) {
+                    tamanhoAtual += passo;
+                    aplicarTamanho(tamanhoAtual);
+                }
+            });
+
+            // Diminuir fonte
+            btnDiminuir.addEventListener('click', () => {
+                if (tamanhoAtual > tamanhoMinimo) {
+                    tamanhoAtual -= passo;
+                    aplicarTamanho(tamanhoAtual);
+                }
+            });
+
+            // Resetar fonte
+            btnResetar.addEventListener('click', () => {
+                tamanhoAtual = tamanhoPadrao;
+                aplicarTamanho(tamanhoAtual);
+            });
+        });
+    </script>
+</body>
+</html>
+
 
 </html>
 
