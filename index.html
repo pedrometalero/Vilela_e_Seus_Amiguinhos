@@ -3,167 +3,263 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Site educativo e acessível sobre a evolução dos Modelos Atômicos: Dalton, Thomson, Rutherford e Bohr.">
-    <title>Modelos Atômicos - Ciência Acessível</title>
+    <title>Modelos Atômicos — Ciência Acessível</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Link de salto para leitores de tela e navegação por teclado -->
+    <!-- Link para pular direto ao conteúdo (Acessibilidade para teclado/leitor de tela) -->
     <a href="#conteudo-principal" class="skip-link">Pular para o conteúdo principal</a>
 
     <!-- Barra de Ferramentas de Acessibilidade -->
-    <div class="barra-acessibilidade" role="region" aria-label="Ferramentas de Acessibilidade">
-        <div class="container">
+    <header class="acessibilidade-bar" role="region" aria-label="Ferramentas de Acessibilidade">
+        <div class="container flex-bar">
             <span>Acessibilidade:</span>
-            <button id="btn-contraste" type="button" aria-pressed="false" title="Alternar modo de alto contraste">
-                Alto Contraste
-            </button>
-            <button id="btn-aumentar-fonte" type="button" title="Aumentar tamanho do texto">
-                A+
-            </button>
-            <button id="btn-diminuir-fonte" type="button" title="Diminuir tamanho do texto">
-                A-
-            </button>
-            <button id="btn-resetar-fonte" type="button" title="Restaurar tamanho original do texto">
-                Padrão
-            </button>
-        </div>
-    </div>
-
-    <!-- Cabeçalho -->
-    <header class="cabecalho">
-        <div class="container">
-            <h1>Evolução dos Modelos Atômicos</h1>
-            <p>Conheça as principais teorias que explicam a estrutura da matéria ao longo da história.</p>
-            <nav aria-label="Menu de navegação dos modelos">
-                <ul class="menu-navegacao">
-                    <li><a href="#dalton">Dalton</a></li>
-                    <li><a href="#thomson">Thomson</a></li>
-                    <li><a href="#rutherford">Rutherford</a></li>
-                    <li><a href="#bohr">Bohr</a></li>
-                </ul>
-            </nav>
+            <div class="controles">
+                <button id="btn-diminuir" type="button" aria-label="Diminuir tamanho da fonte">A-</button>
+                <button id="btn-resetar" type="button" aria-label="Tamanho de fonte padrão">A</button>
+                <button id="btn-aumentar" type="button" aria-label="Aumentar tamanho da fonte">A+</button>
+                <button id="btn-contraste" type="button" aria-pressed="false">Alto Contraste</button>
+                <button id="btn-espacamento" type="button" aria-pressed="false">Espaçamento Texto</button>
+            </div>
         </div>
     </header>
+
+    <!-- Cabeçalho Principal -->
+    <nav class="navbar" aria-label="Navegação Principal">
+        <div class="container">
+            <h1>Evolução dos Modelos Atômicos</h1>
+            <p class="subtitulo">Da esfera indivisível à mecânica quântica</p>
+        </div>
+    </nav>
 
     <!-- Conteúdo Principal -->
     <main id="conteudo-principal" class="container">
         
-        <!-- Modelo de Dalton -->
-        <article id="dalton" class="card-modelo">
-            <div class="texto-modelo">
-                <h2>1. Modelo de Dalton (1803) — "Bola de Bilhar"</h2>
-                <p>Proposto pelo químico inglês John Dalton, este foi o primeiro modelo atômico com base científica. Dalton retomou a ideia dos filósofos gregos de que a matéria é formada por partículas minúsculas.</p>
-                <ul>
-                    <li><strong>Características:</strong> O átomo seria uma esfera maciça, homogênea, indivisível e indestrutível.</li>
-                    <li><strong>Analogia:</strong> Comparado a uma bola de bilhar (sinuca) sem cargas elétricas.</li>
-                </ul>
+        <!-- Imagem Grande de Destaque (Hero) -->
+        <section class="hero-section" aria-labelledby="titulo-hero">
+            <div class="hero-texto">
+                <h2 id="titulo-hero">O que é um Modelo Atômico?</h2>
+                <p>Modelos atômicos são representações científicas criadas ao longo da história para explicar a estrutura da matéria. Como não podemos enxergar o átomo diretamente, os cientistas usaram experimentos para imaginar como ele funciona.</p>
+                <p><strong>Dica:</strong> Clique em qualquer ilustração dos modelos abaixo para ampliá-la em tela cheia.</p>
             </div>
-            <figure class="imagem-modelo">
-                <img src="https://wikimedia.org" 
-                     alt="Ilustração do modelo atômico de Dalton: uma esfera sólida e lisa de cor cinza.">
-                <figcaption>Representação da esfera maciça de Dalton.</figcaption>
+            
+            <!-- Ilustração Grande -->
+            <figure class="imagem-grande-box">
+                <svg viewBox="0 0 400 300" class="svg-grande" role="img" aria-label="Ilustração grande mostrando um átomo com núcleo central composto por prótons e nêutrons, cercado por três órbitas elípticas com elétrons em movimento">
+                    <rect width="400" height="300" fill="transparent"/>
+                    <!-- Órbitas -->
+                    <ellipse cx="200" cy="150" rx="140" ry="50" transform="rotate(30 200 150)" class="orbita"/>
+                    <ellipse cx="200" cy="150" rx="140" ry="50" transform="rotate(-30 200 150)" class="orbita"/>
+                    <ellipse cx="200" cy="150" rx="140" ry="50" transform="rotate(90 200 150)" class="orbita"/>
+                    <!-- Núcleo -->
+                    <circle cx="192" cy="145" r="14" class="proton"/>
+                    <circle cx="208" cy="145" r="14" class="neutron"/>
+                    <circle cx="200" cy="158" r="14" class="proton"/>
+                    <circle cx="195" cy="152" r="12" class="neutron"/>
+                    <!-- Elétrons -->
+                    <circle cx="80" cy="80" r="8" class="eletron"/>
+                    <circle cx="320" cy="220" r="8" class="eletron"/>
+                    <circle cx="200" cy="10" r="8" class="eletron"/>
+                </svg>
+                <figcaption>Representação clássica de um átomo: núcleo denso (prótons e nêutrons) e eletrosfera.</figcaption>
             </figure>
-        </article>
+        </section>
 
-        <!-- Modelo de Thomson -->
-        <article id="thomson" class="card-modelo">
-            <div class="texto-modelo">
-                <h2>2. Modelo de Thomson (1897) — "Pudim de Passas"</h2>
-                <p>Ao realizar experimentos com tubos de raios catódicos, Joseph John Thomson descobriu os elétrons, provando que o átomo não era indivisível.</p>
-                <ul>
-                    <li><strong>Características:</strong> Uma esfera de carga elétrica positiva incrustada com partículas negativas (elétrons).</li>
-                    <li><strong>Neutralidade:</strong> O número de cargas positivas e negativas seria igual, tornando o átomo neutro.</li>
-                </ul>
+        <!-- Grade de Modelos (Com imagens pequenas clicáveis) -->
+        <section aria-labelledby="titulo-linha-tempo">
+            <h2 id="titulo-linha-tempo" class="secao-titulo">Principais Modelos da História</h2>
+            
+            <div class="grid-modelos">
+                <!-- 1. Dalton -->
+                <article class="card">
+                    <button type="button" class="btn-ampliar" data-titulo="Modelo de Dalton (1808) — Bola de Bilhar" aria-label="Ampliar imagem do Modelo de Dalton">
+                        <svg viewBox="0 0 120 120" class="svg-pequeno" role="img" aria-hidden="true">
+                            <circle cx="60" cy="60" r="45" class="esfera-solida"/>
+                            <circle cx="45" cy="45" r="10" fill="rgba(255,255,255,0.3)"/>
+                        </svg>
+                        <span class="zoom-tag">🔍 Ampliar</span>
+                    </button>
+                    <div class="card-body">
+                        <span class="ano">1808</span>
+                        <h3>John Dalton</h3>
+                        <h4>"Bola de Bilhar"</h4>
+                        <p>Dalton propôs que o átomo era uma esfera maciça, homogênea, indivisível e indestrutível. Átomos de um mesmo elemento teriam massas iguais.</p>
+                    </div>
+                </article>
+
+                <!-- 2. Thomson -->
+                <article class="card">
+                    <button type="button" class="btn-ampliar" data-titulo="Modelo de Thomson (1898) — Pudim de Passas" aria-label="Ampliar imagem do Modelo de Thomson">
+                        <svg viewBox="0 0 120 120" class="svg-pequeno" role="img" aria-hidden="true">
+                            <circle cx="60" cy="60" r="45" class="esfera-positiva"/>
+                            <text x="53" y="30" class="sinal-mais">+</text>
+                            <circle cx="42" cy="48" r="6" class="eletron"/>
+                            <circle cx="78" cy="48" r="6" class="eletron"/>
+                            <circle cx="60" cy="65" r="6" class="eletron"/>
+                            <circle cx="45" cy="82" r="6" class="eletron"/>
+                            <circle cx="76" cy="80" r="6" class="eletron"/>
+                        </svg>
+                        <span class="zoom-tag">🔍 Ampliar</span>
+                    </button>
+                    <div class="card-body">
+                        <span class="ano">1898</span>
+                        <h3>J.J. Thomson</h3>
+                        <h4>"Pudim de Passas"</h4>
+                        <p>Com a descoberta do elétron, o átomo passou a ser divisível: uma esfera de carga elétrica positiva incrustada com elétrons de carga negativa.</p>
+                    </div>
+                </article>
+
+                <!-- 3. Rutherford -->
+                <article class="card">
+                    <button type="button" class="btn-ampliar" data-titulo="Modelo de Rutherford (1911) — Sistema Planetário" aria-label="Ampliar imagem do Modelo de Rutherford">
+                        <svg viewBox="0 0 120 120" class="svg-pequeno" role="img" aria-hidden="true">
+                            <ellipse cx="60" cy="60" rx="50" ry="18" transform="rotate(35 60 60)" class="orbita"/>
+                            <ellipse cx="60" cy="60" rx="50" ry="18" transform="rotate(-35 60 60)" class="orbita"/>
+                            <circle cx="60" cy="60" r="10" class="proton"/>
+                            <circle cx="20" cy="32" r="5" class="eletron"/>
+                            <circle cx="100" cy="88" r="5" class="eletron"/>
+                        </svg>
+                        <span class="zoom-tag">🔍 Ampliar</span>
+                    </button>
+                    <div class="card-body">
+                        <span class="ano">1911</span>
+                        <h3>Ernest Rutherford</h3>
+                        <h4>"Sistema Planetário"</h4>
+                        <p>O átomo possui um núcleo muito pequeno, denso e positivo, cercado por uma imensa região vazia (eletrosfera) onde giram os elétrons.</p>
+                    </div>
+                </article>
+
+                <!-- 4. Bohr -->
+                <article class="card">
+                    <button type="button" class="btn-ampliar" data-titulo="Modelo de Bohr (1913) — Níveis de Energia" aria-label="Ampliar imagem do Modelo de Bohr">
+                        <svg viewBox="0 0 120 120" class="svg-pequeno" role="img" aria-hidden="true">
+                            <circle cx="60" cy="60" r="48" class="orbita"/>
+                            <circle cx="60" cy="60" r="32" class="orbita"/>
+                            <circle cx="60" cy="60" r="16" class="orbita"/>
+                            <circle cx="60" cy="60" r="8" class="proton"/>
+                            <circle cx="60" cy="44" r="4" class="eletron"/>
+                            <circle cx="92" cy="60" r="4" class="eletron"/>
+                            <circle cx="26" cy="94" r="4" class="eletron"/>
+                        </svg>
+                        <span class="zoom-tag">🔍 Ampliar</span>
+                    </button>
+                    <div class="card-body">
+                        <span class="ano">1913</span>
+                        <h3>Niels Bohr</h3>
+                        <h4>"Camadas Eletrônicas"</h4>
+                        <p>Aperfeiçoou Rutherford: os elétrons giram em órbitas circulares específicas com energia quantizada. Ao saltar de camada, absorvem ou emitem luz.</p>
+                    </div>
+                </article>
             </div>
-            <figure class="imagem-modelo">
-                <img src="https://wikimedia.org" 
-                     alt="Ilustração do modelo de Thomson: uma esfera positiva com pequenos pontos negativos espalhados em seu interior.">
-                <figcaption>Representação do modelo de Thomson.</figcaption>
-            </figure>
-        </article>
+        </section>
 
-        <!-- Modelo de Rutherford -->
-        <article id="rutherford" class="card-modelo">
-            <div class="texto-modelo">
-                <h2>3. Modelo de Rutherford (1911) — "Modelo Planetário"</h2>
-                <p>Ernest Rutherford bombardeou uma fina lâmina de ouro com partículas alfa e percebeu que a maioria atravessava a lâmina sem desviar, concluindo que o átomo possui grandes espaços vazios.</p>
-                <ul>
-                    <li><strong>Núcleo:</strong> Região central muito pequena, densa e com carga positiva.</li>
-                    <li><strong>Eletrosfera:</strong> Região ao redor do núcleo onde os elétrons giram em órbitas circulares.</li>
-                </ul>
+        <!-- Seção com Imagem Grande Comparativa (Modelo Atual / Quântico) -->
+        <section class="quantico-section" aria-labelledby="titulo-quantico">
+            <figure class="imagem-grande-box">
+                <svg viewBox="0 0 400 280" class="svg-grande" role="img" aria-label="Ilustração grande do modelo quântico mostrando uma nuvem probabilística difusa ao redor de um núcleo central">
+                    <defs>
+                        <radialGradient id="nuvemGradiente" cx="50%" cy="50%" r="50%">
+                            <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.8"/>
+                            <stop offset="50%" stop-color="#3b82f6" stop-opacity="0.35"/>
+                            <stop offset="100%" stop-color="#3b82f6" stop-opacity="0"/>
+                        </radialGradient>
+                    </defs>
+                    <circle cx="200" cy="140" r="120" fill="url(#nuvemGradiente)" class="nuvem-eletronica"/>
+                    <circle cx="200" cy="140" r="10" class="proton"/>
+                </svg>
+                <figcaption>Modelo Atômico Atual (Schrödinger): Nuvem eletrônica de probabilidade.</figcaption>
+            </figure>
+
+            <div class="quantico-texto">
+                <span class="ano">1926 — Atualidade</span>
+                <h2 id="titulo-quantico">Modelo Quântico (Schrödinger)</h2>
+                <p>No modelo atual, não falamos mais em órbitas fixas como trilhos de trem. Devido ao Princípio da Incerteza de Heisenberg, não é possível saber a posição e a velocidade exatas de um elétron ao mesmo tempo.</p>
+                <p>Em vez disso, existem os <strong>orbitais</strong>: regiões ao redor do núcleo onde há maior probabilidade de encontrar o elétron, formando uma "nuvem eletrônica".</p>
             </div>
-            <figure class="imagem-modelo">
-                <img src="https://wikimedia.org" 
-                     alt="Ilustração do modelo de Rutherford: um pequeno núcleo central rodeado por elétrons girando em órbitas cruzadas.">
-                <figcaption>Representação do sistema nuclear de Rutherford.</figcaption>
-            </figure>
-        </article>
-
-        <!-- Modelo de Bohr -->
-        <article id="bohr" class="card-modelo">
-            <div class="texto-modelo">
-                <h2>4. Modelo de Bohr (1913) — "Níveis de Energia"</h2>
-                <p>Niels Bohr aperfeiçoou o modelo de Rutherford utilizando conceitos da física quântica para explicar por que os elétrons não caem no núcleo.</p>
-                <ul>
-                    <li><strong>Camadas Eletrônicas:</strong> Os elétrons giram em órbitas circulares específicas com energia constante (camadas K, L, M, N, O, P, Q).</li>
-                    <li><strong>Salto Quântico:</strong> Ao ganhar energia, o elétron salta para uma camada mais externa; ao voltar, emite luz (fóton).</li>
-                </ul>
-            </div>
-            <figure class="imagem-modelo">
-                <img src="https://wikimedia.org" 
-                     alt="Ilustração do modelo de Bohr: um núcleo central cercado por anéis concêntricos representando níveis de energia com elétrons.">
-                <figcaption>Representação das camadas de energia de Bohr.</figcaption>
-            </figure>
-        </article>
-
+        </section>
     </main>
 
-    <!-- Rodapé -->
-    <footer class="rodape">
+    <!-- Modal para Visualização Ampliada das Imagens Pequenas -->
+    <dialog id="modal-imagem" aria-labelledby="modal-titulo">
+        <div class="modal-conteudo">
+            <div class="modal-header">
+                <h3 id="modal-titulo">Visualização Ampliada</h3>
+                <button id="btn-fechar-modal" type="button" aria-label="Fechar imagem ampliada">✕ Fechar</button>
+            </div>
+            <div id="modal-svg-container"></div>
+        </div>
+    </dialog>
+
+    <footer class="footer">
         <div class="container">
-            <p>Projeto Educativo sobre Modelos Atômicos — Desenvolvido com foco em Acessibilidade Web (WCAG).</p>
+            <p>Projeto Educacional sobre Modelos Atômicos — Desenvolvido com foco em Acessibilidade Web (WCAG).</p>
         </div>
     </footer>
 
-    <!-- Script para controle de Acessibilidade -->
+    <!-- Script Funcional de Acessibilidade e Ampliação -->
     <script>
+        // Controle de Tamanho da Fonte
+        let tamanhoFonte = 100;
+        const htmlEl = document.documentElement;
+
+        document.getElementById('btn-aumentar').addEventListener('click', () => {
+            if (tamanhoFonte < 140) {
+                tamanhoFonte += 10;
+                htmlEl.style.fontSize = tamanhoFonte + '%';
+            }
+        });
+
+        document.getElementById('btn-diminuir').addEventListener('click', () => {
+            if (tamanhoFonte > 80) {
+                tamanhoFonte -= 10;
+                htmlEl.style.fontSize = tamanhoFonte + '%';
+            }
+        });
+
+        document.getElementById('btn-resetar').addEventListener('click', () => {
+            tamanhoFonte = 100;
+            htmlEl.style.fontSize = '100%';
+        });
+
+        // Controle de Alto Contraste
         const btnContraste = document.getElementById('btn-contraste');
-        const btnAumentar = document.getElementById('btn-aumentar-fonte');
-        const btnDiminuir = document.getElementById('btn-diminuir-fonte');
-        const btnResetar = document.getElementById('btn-resetar-fonte');
-        const htmlElement = document.documentElement;
-
-        // Tamanho base da fonte (100% = 16px)
-        let tamanhoFonteAtual = 100;
-
-        // Alternar Alto Contraste
         btnContraste.addEventListener('click', () => {
-            document.body.classList.toggle('alto-contraste');
-            const ativo = document.body.classList.contains('alto-contraste');
+            const ativo = document.body.classList.toggle('alto-contraste');
             btnContraste.setAttribute('aria-pressed', ativo);
         });
 
-        // Aumentar Fonte (limite de 140%)
-        btnAumentar.addEventListener('click', () => {
-            if (tamanhoFonteAtual < 140) {
-                tamanhoFonteAtual += 10;
-                htmlElement.style.fontSize = tamanhoFonteAtual + '%';
-            }
+        // Controle de Espaçamento de Texto (Dislexia / Leitura)
+        const btnEspacamento = document.getElementById('btn-espacamento');
+        btnEspacamento.addEventListener('click', () => {
+            const ativo = document.body.classList.toggle('espacamento-amplo');
+            btnEspacamento.setAttribute('aria-pressed', ativo);
         });
 
-        // Diminuir Fonte (limite de 80%)
-        btnDiminuir.addEventListener('click', () => {
-            if (tamanhoFonteAtual > 80) {
-                tamanhoFonteAtual -= 10;
-                htmlElement.style.fontSize = tamanhoFonteAtual + '%';
-            }
+        // Modal para ampliar imagens pequenas em imagens grandes
+        const modal = document.getElementById('modal-imagem');
+        const modalTitulo = document.getElementById('modal-titulo');
+        const modalContainer = document.getElementById('modal-svg-container');
+
+        document.querySelectorAll('.btn-ampliar').forEach(botao => {
+            botao.addEventListener('click', () => {
+                const svgClone = botao.querySelector('svg').cloneNode(true);
+                svgClone.classList.remove('svg-pequeno');
+                svgClone.classList.add('svg-modal');
+                
+                modalTitulo.textContent = botao.getAttribute('data-titulo');
+                modalContainer.innerHTML = '';
+                modalContainer.appendChild(svgClone);
+                modal.showModal();
+            });
         });
 
-        // Resetar Fonte
-        btnResetar.addEventListener('click', () => {
-            tamanhoFonteAtual = 100;
-            htmlElement.style.fontSize = '100%';
+        document.getElementById('btn-fechar-modal').addEventListener('click', () => {
+            modal.close();
+        });
+
+        // Fechar modal clicando fora
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) modal.close();
         });
     </script>
 </body>
